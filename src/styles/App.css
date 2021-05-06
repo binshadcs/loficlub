@@ -53,3 +53,112 @@
   pointer-events: none;
   opacity: 0.6;
 }
+
+/* Play Btn */
+.control-btn {
+  width: 10px;
+  height: 35px;
+  border-color: transparent transparent transparent #fff;
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 17px 0 17px 30px;
+  transform: scale(0.4);
+}
+.control-btn.paused {
+  border-style: double;
+  border-width: 0px 0px 0px 30px;
+}
+.MuiButton-label {
+  color: #fff !important;
+}
+.MuiSlider-root {
+  color: #4cd2d6 !important;
+}
+
+/* Spectrum Animation */
+.line {
+  width: 0.2em;
+  margin-left: 3px;
+}
+.spectrum .line1 {
+  animation: animateLine1 1.3s infinite;
+}
+.spectrum .line2 {
+  animation: animateLine2 1.3s infinite;
+}
+.spectrum .line3 {
+  animation: animateLine3 1.3s infinite;
+}
+.spectrum .line4 {
+  animation: animateLine4 1.3s infinite;
+}
+
+@keyframes animateLine1 {
+  0% {
+    height: 0.9em;
+  }
+  25% {
+    height: 1.2em;
+  }
+  50% {
+    height: 0.4em;
+  }
+  75% {
+    height: 1.3em;
+  }
+  100% {
+    height: 1.3em;
+  }
+}
+@keyframes animateLine2 {
+  0% {
+    height: 1em;
+  }
+  25% {
+    height: 0.4em;
+  }
+  50% {
+    height: 0.8em;
+  }
+  75% {
+    height: 1em;
+  }
+  100% {
+    height: 0.6em;
+  }
+}
+@keyframes animateLine3 {
+  0% {
+    height: 0.2em;
+  }
+  25% {
+    height: 1.3em;
+  }
+  50% {
+    height: 0.7em;
+  }
+  75% {
+    height: 1em;
+  }
+  100% {
+    height: 0.9em;
+  }
+}
+@keyframes animateLine4 {
+  0% {
+    height: 0.1em;
+  }
+  25% {
+    height: 1.2em;
+  }
+  50% {
+    height: 0.4em;
+  }
+  75% {
+    height: 0.3em;
+  }
+  100% {
+    height: 1em;
+  }
+}

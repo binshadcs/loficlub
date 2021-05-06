@@ -14,11 +14,23 @@ const images = [
   "lofi-bg-13.jpg",
 ];
 
-const getRandomBg = () => {
+const gifs = [
+  "lofi-1.gif",
+  "lofi-2.gif",
+  "lofi-3.gif",
+  "lofi-4.gif",
+  "lofi-5.gif",
+  "lofi-6.gif",
+];
+
+export const getRandomBg = () => {
   const randomBg = `/assets/${
     images[Math.floor(Math.random() * images.length)]
   }`;
   return randomBg;
 };
 
-export default getRandomBg;
+export const getRandomGif = () => {
+  const randomGif = `/gifs/${gifs[Math.floor(Math.random() * gifs.length)]}`;
+  return randomGif;
+};

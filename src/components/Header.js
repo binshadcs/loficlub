@@ -11,13 +11,18 @@ import { Logo } from ".";
 
 const Header = () => {
   return (
-    <div className="flex w-full h-[10%] items-center justify-between ">
-      <div className="flex items-center h-full ml-5">
-        <Link to="/" className="flex">
+    <div className="flex w-full h-[12%] items-center justify-between">
+      <div className="flex flex-col justify-center items-center h-full ml-5">
+        <Link to="/" className="flex mt-2">
           <Logo />
-          <h3 className="text-2xl text-[#F0E9E2]  poppins ml-1 font-medium">
-            Lofi Club
-          </h3>
+          <div className="flex flex-col items-start justify-center">
+            <h3 className="text-2xl text-[#F0E9E2] poppins ml-1 font-medium">
+              Lofi Club
+            </h3>
+            <h4 className="text-sm text-[#F0E9E2] poppins font-medium -mt-1 ml-1">
+              13 listening
+            </h4>
+          </div>
         </Link>
       </div>
       <div className="flex items-center mr-5">
