@@ -15,7 +15,7 @@ const images = [
 ];
 
 const getRandomBg = () => {
-  const randomBg = `http://localhost:3000/assets/${
+  const randomBg = `/assets/${
     images[Math.floor(Math.random() * images.length)]
   }`;
   return randomBg;

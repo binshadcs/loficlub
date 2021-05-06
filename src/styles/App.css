@@ -1,1 +1,55 @@
 @import url(./index.css);
+@import url(https://fonts.googleapis.com/css?family=Acme:regular);
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+.bg-center {
+  background-position: center !important;
+}
+
+* {
+  font-family: "Acme", sans-serif;
+}
+*:focus {
+  outline: none !important;
+}
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+.material-header-btn.MuiButtonBase-root {
+  margin-left: -20%;
+}
+.bg-cover {
+  background-size: cover !important;
+}
+@keyframes moveDownAnimation {
+  100% {
+    background-position-y: 100%;
+  }
+}
+
+.lines-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../assets/lines.jpg);
+  background-size: 7px auto;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.4;
+  animation: moveDownAnimation 15s linear infinite;
+}
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../assets/vignette.png);
+  z-index: 1;
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.6;
+}
