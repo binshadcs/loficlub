@@ -1,14 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Base from "../Base";
-import { Track, YTwrapper } from "../components";
+import { Track } from "../components";
 
 const Tracks = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
     await axios
-      .get("http://localhost:3000/data/tracks.json", {
+      .get("/data/tracks.json", {
         headers: {},
       })
       .then((response) => {

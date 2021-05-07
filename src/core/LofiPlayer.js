@@ -15,7 +15,7 @@ import { BsMusicNoteList, BsVolumeDown } from "react-icons/bs";
 // react router
 import { Link } from "react-router-dom";
 
-const LofiPlayer = ({ paused, setPaused, volume, setVolume }) => {
+const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
   return (
     <div className="w-full pl-7">
       <div className="mb-1 flex">
@@ -94,9 +94,7 @@ const LofiPlayer = ({ paused, setPaused, volume, setVolume }) => {
         <Link to="/tracks" className="flex items-center justify-start w-auto">
           <h1 className="text-lg text-[#4CD2D6]">Click to Change</h1>
           <FiChevronRight className="text-xl text-[#4CD2D6]" />
-          <h1 className="text-lg">
-            lofi hip hop radio - beats to relax/study to
-          </h1>
+          <h1 className="text-lg">{name}</h1>
         </Link>
       </div>
     </div>
