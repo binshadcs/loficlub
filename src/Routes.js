@@ -45,7 +45,6 @@ const Routes = () => {
         </Route>
         <Route path="/tracks" exact>
           <Tracks />
-          <h1 className="text-5xl ">ipbdwsdbqwvdihwqbjd.bwsdn</h1>
         </Route>
       </Switch>
     </Router>

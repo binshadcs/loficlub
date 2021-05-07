@@ -25,8 +25,8 @@ const Tracks = () => {
   return (
     <Base>
       <div className="flex h-full items-center justify-center flex-wrap overflow-scroll pb-[10%]">
-        {data.map((track) => (
-          <Track videoId={track.id} name={track.name} />
+        {data.map((track, index) => (
+          <Track videoId={track.id} name={track.name} key={index} />
         ))}
       </div>
     </Base>

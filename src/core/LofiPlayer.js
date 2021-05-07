@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Slider } from "@material-ui/core"; // material-ui
 
 // icons
@@ -14,8 +14,67 @@ import { FiChevronRight } from "react-icons/fi";
 import { BsMusicNoteList, BsVolumeDown } from "react-icons/bs";
 // react router
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    await axios
+      .get("/data/tracks.json", {
+        headers: {},
+      })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const updatetoRandomVideo = () => {
+    const randomVideo = data[Math.floor(Math.random() * data.length)];
+    if (typeof window !== undefined) {
+      const { id, name } = randomVideo;
+      localStorage.setItem("videoId", id);
+      localStorage.setItem("name", name);
+    }
+  };
+
+  const moveToPreviousVideo = () => {
+    const currentVideo = data.filter((video) => video.name === name);
+    const currentVideoIndex = currentVideo[0].index;
+
+    if (typeof window !== undefined) {
+      if (currentVideoIndex === 0) {
+        console.log("no more previous video");
+      } else {
+        const { id, name } = data[currentVideoIndex - 1];
+        localStorage.setItem("videoId", id);
+        localStorage.setItem("name", name);
+      }
+    }
+  };
+
+  const moveToNextVideo = () => {
+    const currentVideo = data.filter((video) => video.name === name);
+    const currentVideoIndex = currentVideo[0].index;
+
+    if (typeof window !== undefined) {
+      if (data.length - 1 === currentVideoIndex) {
+        console.log("no more next video");
+      } else {
+        const { id, name } = data[currentVideoIndex + 1];
+        localStorage.setItem("videoId", id);
+        localStorage.setItem("name", name);
+      }
+    }
+  };
+
   return (
     <div className="w-full pl-7">
       <div className="mb-1 flex">
@@ -29,7 +88,10 @@ const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
             </div>
           </Button>
         </div>
-        <div className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1">
+        <div
+          className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
+          onClick={updatetoRandomVideo}
+        >
           <Button className="playBtn h-full">
             <BiTransfer className="text-2xl text-white" />
           </Button>
@@ -41,12 +103,18 @@ const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
             </Button>
           </div>
         </Link>
-        <div className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1">
+        <div
+          className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
+          onClick={moveToPreviousVideo}
+        >
           <Button className="playBtn h-full">
             <HiChevronDoubleLeft className="text-2xl text-white" />
           </Button>
         </div>
-        <div className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl">
+        <div
+          className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl"
+          onClick={moveToNextVideo}
+        >
           <Button className="playBtn h-full">
             <HiChevronDoubleRight className="text-2xl text-white" />
           </Button>
