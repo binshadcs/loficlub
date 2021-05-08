@@ -8,7 +8,7 @@ import Base from "./Base";
 
 // components & core
 import { YTwrapper } from "./components";
-import { Home, Tracks } from "./core";
+import { Home, TodoList, Tracks } from "./core";
 
 // utils
 import useLocalStorage from "./util/useLocalStorage";
@@ -46,11 +46,11 @@ const Routes = () => {
   return (
     <Router>
       <Base>
-        <div className="absolute top-0 left-0 ">
+        {/* <div className="absolute top-0 left-0 invisible -z-10">
           {id && (
             <YTwrapper videoId={id} paused={paused} volume={volume / 100} />
           )}
-        </div>
+        </div> */}
         <Switch>
           <Route path="/" exact>
             <Home
@@ -65,6 +65,9 @@ const Routes = () => {
           </Route>
           <Route path="/tracks" exact>
             <Tracks fetchVideo={fetchVideo} />
+          </Route>
+          <Route path="/todo" exact>
+            <TodoList fetchVideo={fetchVideo} />
           </Route>
         </Switch>
       </Base>

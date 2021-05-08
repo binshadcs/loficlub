@@ -7,6 +7,7 @@ import { Button } from "@material-ui/core";
 import {
   BsArrowsFullscreen,
   BsChatSquareDots,
+  BsCheckBox,
   BsClock,
   BsMusicNoteList,
 } from "react-icons/bs";
@@ -60,6 +61,16 @@ const Header = () => {
               style={{ marginLeft: "-20" }}
             >
               <BsMusicNoteList className=" text-2xl text-[#F0E9E2]" />
+            </Button>
+          </div>
+        </Link>
+        <Link to="/todo" className="flex items-center">
+          <div className="w-11 flex items-center overflow-hidden">
+            <Button
+              className="-mr-5 material-header-btn"
+              style={{ marginLeft: "-20" }}
+            >
+              <BsCheckBox className=" text-2xl text-[#F0E9E2]" />
             </Button>
           </div>
         </Link>
