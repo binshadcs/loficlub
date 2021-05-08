@@ -11,12 +11,22 @@ import {
 } from "react-icons/bi";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { FiChevronRight } from "react-icons/fi";
-import { BsMusicNoteList, BsVolumeDown } from "react-icons/bs";
+import { BsMusicNoteList } from "react-icons/bs";
+
 // react router
 import { Link } from "react-router-dom";
+
+// axios
 import axios from "axios";
 
-const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
+const LofiPlayer = ({
+  paused,
+  setPaused,
+  volume,
+  setVolume,
+  name,
+  fetchVideo,
+}) => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
@@ -36,15 +46,22 @@ const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
     fetchData();
   }, []);
 
+  // random video
   const updatetoRandomVideo = () => {
     const randomVideo = data[Math.floor(Math.random() * data.length)];
     if (typeof window !== undefined) {
       const { id, name } = randomVideo;
-      localStorage.setItem("videoId", id);
-      localStorage.setItem("name", name);
+
+      const video = {
+        videoId: id,
+        name: name,
+      };
+      localStorage.setItem("video", JSON.stringify(video));
     }
+    fetchVideo();
   };
 
+  // previous video
   const moveToPreviousVideo = () => {
     const currentVideo = data.filter((video) => video.name === name);
     const currentVideoIndex = currentVideo[0].index;
@@ -54,12 +71,18 @@ const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
         console.log("no more previous video");
       } else {
         const { id, name } = data[currentVideoIndex - 1];
-        localStorage.setItem("videoId", id);
-        localStorage.setItem("name", name);
+
+        const video = {
+          videoId: id,
+          name: name,
+        };
+        localStorage.setItem("video", JSON.stringify(video));
       }
     }
+    fetchVideo();
   };
 
+  // next video
   const moveToNextVideo = () => {
     const currentVideo = data.filter((video) => video.name === name);
     const currentVideoIndex = currentVideo[0].index;
@@ -69,10 +92,15 @@ const LofiPlayer = ({ paused, setPaused, volume, setVolume, name }) => {
         console.log("no more next video");
       } else {
         const { id, name } = data[currentVideoIndex + 1];
-        localStorage.setItem("videoId", id);
-        localStorage.setItem("name", name);
+        const video = {
+          videoId: id,
+          name: name,
+        };
+
+        localStorage.setItem("video", JSON.stringify(video));
       }
     }
+    fetchVideo();
   };
 
   return (

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+
+// components
 import { Header } from "./components";
-import { getRandomBg, getRandomGif } from "./helper/RandomImageCalls";
+
+// helper calls
+import { getRandomGif } from "./helper/RandomImageCalls";
 
 const Base = ({ children }) => {
-  const [bgImage, setBgImage] = useState("");
   const [bgGif, setBgGif] = useState("");
 
   useEffect(() => {
     setBgGif(getRandomGif());
-    setBgImage(getRandomBg());
   }, []);
 
   return (

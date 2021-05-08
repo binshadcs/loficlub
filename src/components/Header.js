@@ -1,13 +1,20 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+
+// material design
+import { Button } from "@material-ui/core";
+
+// icons
 import {
   BsArrowsFullscreen,
   BsChatSquareDots,
   BsClock,
   BsMusicNoteList,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+
+// components
 import { Logo } from ".";
+
+import { Link } from "react-router-dom"; // react router
 
 const Header = () => {
   return (

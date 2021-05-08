@@ -1,9 +1,10 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Base from "../Base";
+import axios from "axios";
+
+// components
 import { Track } from "../components";
 
-const Tracks = () => {
+const Tracks = ({ fetchVideo }) => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
@@ -22,14 +23,18 @@ const Tracks = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
-    <Base>
-      <div className="flex h-full items-center justify-center flex-wrap overflow-scroll pb-[10%]">
-        {data.map((track, index) => (
-          <Track videoId={track.id} name={track.name} key={index} />
-        ))}
-      </div>
-    </Base>
+    <div className="flex h-full items-center justify-center flex-wrap overflow-scroll pb-[10%]">
+      {data.map((track, index) => (
+        <Track
+          videoId={track.id}
+          name={track.name}
+          key={index}
+          fetchVideo={fetchVideo}
+        />
+      ))}
+    </div>
   );
 };
 

@@ -1,17 +1,25 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+
+import { Button } from "@material-ui/core"; // material-ui
+
+// react router
 import { useHistory } from "react-router-dom";
 
-const Track = ({ videoId, name }) => {
+const Track = ({ videoId, name, fetchVideo }) => {
   let history = useHistory();
 
   const updateVideo = () => {
     if (typeof window !== undefined) {
-      localStorage.setItem("videoId", videoId);
-      localStorage.setItem("name", name);
+      const video = {
+        videoId: videoId,
+        name: name,
+      };
+      localStorage.setItem("video", JSON.stringify(video));
     }
-    history.push("/");
+    fetchVideo();
+    history.push("/"); // redirects
   };
+
   return (
     <div
       className="relative rounded-lg items-center justify-center  overflow-hidden w-[28%] m-1 h-[15em] shadow-2xl overflow-hidden"
