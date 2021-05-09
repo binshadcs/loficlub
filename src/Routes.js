@@ -8,7 +8,7 @@ import Base from "./Base";
 
 // components & core
 import { YTwrapper } from "./components";
-import { Home, TodoList, Tracks } from "./core";
+import { Home, Pomodoro, TodoList, Tracks } from "./core";
 
 // utils
 import useLocalStorage from "./util/useLocalStorage";
@@ -68,6 +68,9 @@ const Routes = () => {
           </Route>
           <Route path="/todo" exact>
             <TodoList fetchVideo={fetchVideo} />
+          </Route>
+          <Route path="/pomodoro" exact>
+            <Pomodoro />
           </Route>
         </Switch>
       </Base>

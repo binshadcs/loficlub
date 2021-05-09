@@ -25,9 +25,9 @@ const Base = ({ children }) => {
       >
         <div className="vignette"></div>
         <div
-          className="relative bg-gradient-to-t h-[90%] w-[90%] rounded-xl overflow-hidden shadow-2xl from-[#414345] to-[#111] bg-cover bg-center border-2 border-[#4CD2D6] shadow-5xl"
+          className="relative h-[90%] w-[90%] rounded-xl overflow-hidden shadow-2xl bg-cover bg-center border-2 border-[#4CD2D6] shadow-5xl"
           style={{
-            background: `linear-gradient(to bottom, rgba(10,10,10,.76),rgba(0,0,0,.97)), url("${bgGif}")`,
+            background: `linear-gradient(to bottom, rgba(10,10,10,.7),rgba(0,0,0,1)), url("${bgGif}")`,
             backgroundSize: "cover",
           }}
         >
