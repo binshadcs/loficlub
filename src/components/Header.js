@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // material design
 import { Button } from "@material-ui/core";
@@ -10,6 +10,7 @@ import {
   BsCheckBox,
   BsClock,
   BsMusicNoteList,
+  BsFullscreenExit,
 } from "react-icons/bs";
 
 // components
@@ -17,7 +18,12 @@ import { Logo } from ".";
 
 import { Link } from "react-router-dom"; // react router
 
+// fullscreen api
+import screenfull from "screenfull";
+
 const Header = () => {
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
   return (
     <div className="flex w-full h-[12%] items-center justify-between">
       <div className="flex flex-col justify-center items-center h-full ml-5">
@@ -74,12 +80,22 @@ const Header = () => {
             </Button>
           </div>
         </Link>
-        <div className="w-11 flex items-center overflow-hidden">
+        <div
+          className="w-11 flex items-center overflow-hidden"
+          onClick={() => {
+            setIsFullScreen(!isFullScreen);
+            screenfull.toggle();
+          }}
+        >
           <Button
             className="-mr-5 material-header-btn"
             style={{ marginLeft: "-20" }}
           >
-            <BsArrowsFullscreen className=" text-2xl text-[#F0E9E2]" />
+            {isFullScreen ? (
+              <BsFullscreenExit className=" text-2xl text-[#F0E9E2]" />
+            ) : (
+              <BsArrowsFullscreen className=" text-2xl text-[#F0E9E2]" />
+            )}
           </Button>
         </div>
       </div>

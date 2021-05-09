@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-youtube": "^7.13.1",
+    "screenfull": "^5.1.0",
     "uselocalstorage-react-hook": "^1.0.5",
     "web-vitals": "^1.1.1"
   },
