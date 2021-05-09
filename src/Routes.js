@@ -28,11 +28,11 @@ const Routes = () => {
       const video = localStorage.getItem("video");
       const parsedVideo = JSON.parse(video);
 
-      const { videoId, name } = parsedVideo;
-
       setVideo({
-        id: videoId,
-        name: name,
+        id: parsedVideo ? parsedVideo.videoId : "5qap5aO4i9A",
+        name: parsedVideo
+          ? parsedVideo.name
+          : "lofi hip hop radio - beats to relax/study to",
       });
     }
   };
@@ -46,11 +46,11 @@ const Routes = () => {
   return (
     <Router>
       <Base>
-        {/* <div className="absolute top-0 left-0 invisible -z-10">
+        <div className="absolute top-0 left-0 invisible -z-10">
           {id && (
             <YTwrapper videoId={id} paused={paused} volume={volume / 100} />
           )}
-        </div> */}
+        </div>
         <Switch>
           <Route path="/" exact>
             <Home
