@@ -171,8 +171,9 @@
   text-align: left !important;
 }
 
-.MuiFormControl-root,
-.MuiFormLabel-root {
+.MuiFormControl-root * {
   font-family: "Acme", sans-serif !important;
-  font-weight: 500 !important;
+}
+.twitterBtn {
+  padding: 4px 8px !important;
 }

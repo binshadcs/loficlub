@@ -4,7 +4,7 @@ import { BsCheckBox, BsTrash } from "react-icons/bs";
 
 const Todo = ({ todo, deleteTodo, markAsCompleted }) => {
   return (
-    <div className="w-[68%]  p-3 flex items-center justify-between bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D6] rounded-md mt-2">
+    <div className="w-[68%] relative p-3 flex items-center justify-between bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D690] rounded-md mt-2">
       <div className="relative flex items-center justify-start">
         <div
           className={`absolute duration-500 bg-green-400 h-1 ${

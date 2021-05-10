@@ -8,7 +8,7 @@ import Base from "./Base";
 
 // components & core
 import { YTwrapper } from "./components";
-import { Home, Pomodoro, TodoList, Tracks } from "./core";
+import { Chat, Home, Pomodoro, TodoList, Tracks } from "./core";
 
 // utils
 import useLocalStorage from "./util/useLocalStorage";
@@ -47,9 +47,9 @@ const Routes = () => {
     <Router>
       <Base>
         <div className="absolute top-0 left-0 invisible -z-10">
-          {id && (
+          {/* {id && (
             <YTwrapper videoId={id} paused={paused} volume={volume / 100} />
-          )}
+          )} */}
         </div>
         <Switch>
           <Route path="/" exact>
@@ -71,6 +71,9 @@ const Routes = () => {
           </Route>
           <Route path="/pomodoro" exact>
             <Pomodoro />
+          </Route>
+          <Route path="/chat" exact>
+            <Chat />
           </Route>
         </Switch>
       </Base>

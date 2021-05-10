@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // material design
 import { Button } from "@material-ui/core";
@@ -20,9 +20,13 @@ import { Link } from "react-router-dom"; // react router
 
 // fullscreen api
 import screenfull from "screenfull";
+import { FiTwitter } from "react-icons/fi";
 
 const Header = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const twitterLink =
+    "https://twitter.com/intent/tweet?text=Check%20out%20loficlub.now.sh%20by%20@SavioMartin7%E2%9A%A1%EF%B8%8F%0D%0A%0AThe%20best%20place%20to%20enjoy%20Hip%20hop%20beats%20to%20Relax%20or%20Study!%20%F0%9F%8E%A7%20Give%20it%20a%20try!%20You%27ll%20love%20it!%20%F0%9F%94%A5%0D%0A%0A%23lofi%20%23chillbeats";
 
   return (
     <div className="flex w-full h-[12%] items-center justify-between">
@@ -98,6 +102,19 @@ const Header = () => {
             )}
           </Button>
         </div>
+        <a
+          href={twitterLink}
+          target="_blank"
+          rel="noreferrer"
+          className="ml-1 flex items-center bg-[#1A91DA] hover:bg-[#0F84B4] rounded-md relative"
+        >
+          <Button className="track flex twitterBtn">
+            <div className="flex items-center justify-center text-lg text-[#F0E9E2] duration-300">
+              Share on Twitter
+              <FiTwitter className="ml-1" />
+            </div>
+          </Button>
+        </a>
       </div>
     </div>
   );
