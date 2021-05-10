@@ -19,6 +19,7 @@ const Routes = () => {
   const [volume, setVolume] = useLocalStorage("volume", 50);
   const [video, setVideo] = useState([]);
   const [muted, setMuted] = useState(true);
+  const [buffering, setBuffering] = useState(false);
 
   // destructing video
   const { id, name } = video;
@@ -50,17 +51,26 @@ const Routes = () => {
     fetchVideo();
   }, []);
 
+  const onBuffering = () => {
+    setBuffering(true);
+  };
+  const onPlaying = () => {
+    setBuffering(false);
+  };
+
   // routing for all routes
   return (
     <Router>
       <Base>
-        <div className="absolute top-0 left-0 invisible -z-10">
+        <div className="absolute top-0 left-0">
           {id && (
             <YTwrapper
               videoId={id}
               paused={paused}
               volume={volume / 100}
               muted={muted}
+              onBuffering={onBuffering}
+              onPlaying={onPlaying}
             />
           )}
         </div>
@@ -75,6 +85,7 @@ const Routes = () => {
               paused={paused}
               fetchVideo={fetchVideo}
               muted={muted}
+              buffering={buffering}
             />
           </Route>
           <Route path="/tracks" exact>

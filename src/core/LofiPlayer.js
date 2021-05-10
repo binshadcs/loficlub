@@ -31,6 +31,7 @@ const LofiPlayer = ({
   name,
   fetchVideo,
   muted,
+  buffering,
 }) => {
   const [data, setData] = useState([]);
 
@@ -204,7 +205,13 @@ const LofiPlayer = ({
               to="/tracks"
               className="flex items-center justify-start w-auto"
             >
-              <h1 className="text-lg text-[#4CD2D6]">Click to Change</h1>
+              <h1 className="text-lg text-[#4CD2D6]">
+                {buffering
+                  ? "Buffering up ..."
+                  : paused
+                  ? "Music paused"
+                  : "Click to Change"}
+              </h1>
               <FiChevronRight className="text-xl text-[#4CD2D6]" />
               <h1 className="text-lg">{name}</h1>
             </Link>

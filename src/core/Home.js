@@ -11,6 +11,7 @@ const Home = ({
   paused,
   fetchVideo,
   muted,
+  buffering,
 }) => {
   return (
     <div className="flex items-end pb-[10%] justify-between items-between flex-col h-full">
@@ -25,6 +26,7 @@ const Home = ({
         name={name}
         fetchVideo={fetchVideo}
         muted={muted}
+        buffering={buffering}
       />
     </div>
   );
