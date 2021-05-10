@@ -15,7 +15,7 @@ const Pomodoro = () => {
   const [key, setKey] = useState(0);
 
   // working
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isWorkTime, setIsWorkTime] = useState(true);
 
   const [times, setTimes] = useState({
@@ -30,7 +30,7 @@ const Pomodoro = () => {
   };
 
   const convertToSec = (value) => {
-    return value * 59;
+    return value * 60;
   };
 
   return (
@@ -72,34 +72,6 @@ const Pomodoro = () => {
           <div
             className="border border-[#4CD2D6] rounded-md m-1 hover:bg-[#4CD2D680] duration-500"
             onClick={() => {
-              setTimes({
-                worktime: worktime + 5,
-              });
-              setKey((prevKey) => prevKey + 1);
-            }}
-          >
-            <Button className="track flex text-xl">
-              <span className="text-xl font-light">+ 5 Work Time</span>
-            </Button>
-          </div>
-          <div
-            className="border border-[#4CD2D6] rounded-md m-1 hover:bg-[#4CD2D680] duration-500"
-            onClick={() => {
-              if (!isWorkTime) {
-                setTimes({
-                  breaktime: breaktime + 5,
-                });
-                setKey((prevKey) => prevKey + 1);
-              }
-            }}
-          >
-            <Button className="track flex text-xl">
-              <span className="text-xl font-light">+ 5 Break Time</span>
-            </Button>
-          </div>
-          <div
-            className="border border-[#4CD2D6] rounded-md m-1 hover:bg-[#4CD2D680] duration-500"
-            onClick={() => {
               setKey((prevKey) => prevKey + 1);
             }}
           >
@@ -115,7 +87,7 @@ const Pomodoro = () => {
           >
             <Button className="track flex text-xl">
               <span className="text-xl font-light flex items-center justify-center">
-                Pause
+                {!isPlaying ? "Start" : "Stop"}
                 <IoPauseCircleOutline className="text-2xl ml-2" />
               </span>
             </Button>
@@ -127,12 +99,28 @@ const Pomodoro = () => {
           <h1 className="text-4xl leading-8">{worktime} Mins</h1>
           <h1 className="text-md text-gray-300">Session Time</h1>
           <div className="flex items-center justify-center mt-1">
-            <div className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1">
+            <div
+              className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1"
+              onClick={() => {
+                setTimes({
+                  worktime: worktime + 1,
+                });
+                setKey((prevKey) => prevKey + 1);
+              }}
+            >
               <Button className="">
                 <BsPlus className=" text-2xl text-[#F0E9E2]" />
               </Button>
             </div>
-            <div className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1">
+            <div
+              className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1"
+              onClick={() => {
+                setTimes({
+                  worktime: worktime - 1,
+                });
+                setKey((prevKey) => prevKey + 1);
+              }}
+            >
               <Button className="">
                 <BsDash className=" text-2xl text-[#F0E9E2]" />
               </Button>

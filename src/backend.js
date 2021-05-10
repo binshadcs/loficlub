@@ -15,25 +15,24 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-var userRef = firebase.firestore().collection("users").doc("online");
-
 firebase
   .database()
   .ref(".info/connected")
   .on("value", function (snapshot) {
     // If we're not currently connected, don't do anything.
-    if (snapshot.val() == false) {
+    if (snapshot.val() === false) {
       return;
-      userRef.update({ listeningNow: userRef.value().listeningNow - 1 });
     }
 
     // If we are currently connected, then use the 'onDisconnect()'
     // method to add a set which will only trigger once this
     // client has disconnected by closing the app,
     // losing internet, or any other means.
-    userRef
+    firebase
+      .database()
+      .ref()
       .onDisconnect()
-      .update({ listeningNow: userRef.value().listeningNow - 1 })
+      .update({ listeningNow: firebase.database.ServerValue.increment(-1) })
       .then(function () {
         // The promise returned from .onDisconnect().set() will
         // resolve as soon as the server acknowledges the onDisconnect()
@@ -41,7 +40,10 @@ firebase
 
         // We can now safely set ourselves as 'online' knowing that the
         // server will mark us as offline once we lose connection.
-        userRef.update({ listeningNow: userRef.value().listeningNow + 1 });
+        firebase
+          .database()
+          .ref()
+          .update({ listeningNow: firebase.database.ServerValue.increment(1) });
       });
   });
 

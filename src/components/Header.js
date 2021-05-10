@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // material design
 import { Button } from "@material-ui/core";
+import firebase from "firebase";
 
 // icons
 import {
@@ -23,8 +24,18 @@ import screenfull from "screenfull";
 import { FiTwitter } from "react-icons/fi";
 
 const Header = () => {
-  const [onLineUsers, setOnlineUsers] = useState("");
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [listening, setListening] = useState(0);
+
+  // get how many is listening to
+  useEffect(() => {
+    firebase
+      .database()
+      .ref("listeningNow")
+      .on("value", (data) => {
+        setListening(data.val());
+      });
+  });
 
   const twitterLink =
     "https://twitter.com/intent/tweet?text=Check%20out%20loficlub.now.sh%20by%20@SavioMartin7%E2%9A%A1%EF%B8%8F%0D%0A%0AThe%20best%20place%20to%20enjoy%20Hip%20hop%20beats%20to%20Relax%20or%20Study!%20%F0%9F%8E%A7%20Give%20it%20a%20try!%20You%27ll%20love%20it!%20%F0%9F%94%A5%0D%0A%0A%23lofi%20%23chillbeats";
@@ -39,7 +50,7 @@ const Header = () => {
               Lofi Club
             </h3>
             <h4 className="text-sm text-[#F0E9E2] poppins font-medium -mt-1 ml-1">
-              13 listening
+              {listening} listening
             </h4>
           </div>
         </Link>
