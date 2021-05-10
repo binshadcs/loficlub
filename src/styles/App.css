@@ -184,3 +184,26 @@
 .cursor-pointer {
   cursor: pointer !important;
 }
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 17.5px;
+  position: relative !important;
+  background: #111;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
