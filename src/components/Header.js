@@ -42,9 +42,9 @@ const Header = () => {
 
   return (
     <div className="flex w-full h-[12%] items-center justify-between">
-      <div className="flex flex-col justify-center items-center h-full ml-5">
-        <Link to="/" className="flex mt-2">
-          <Logo />
+      <div className="flex flex-col justify-center items-center h-full ml-5 cursor-pointer">
+        <Link to="/" className="flex mt-2 cursor-pointer">
+          <Logo cursor-pointer />
           <div className="flex flex-col items-start justify-center">
             <h3 className="text-2xl text-[#F0E9E2] poppins ml-1 font-medium">
               Lofi Club
@@ -57,7 +57,7 @@ const Header = () => {
       </div>
       <div className="flex items-center mr-5">
         <Link to="/chat" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden">
+          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
             <Button
               className="-mr-5 material-header-btn"
               style={{ marginLeft: "-20" }}
@@ -67,7 +67,7 @@ const Header = () => {
           </div>
         </Link>
         <Link to="/pomodoro" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden">
+          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
             <Button
               className="-mr-5 material-header-btn"
               style={{ marginLeft: "-20" }}
@@ -77,7 +77,7 @@ const Header = () => {
           </div>
         </Link>
         <Link to="/tracks" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden">
+          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
             <Button
               className="-mr-5 material-header-btn"
               style={{ marginLeft: "-20" }}
@@ -87,7 +87,7 @@ const Header = () => {
           </div>
         </Link>
         <Link to="/todo" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden">
+          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
             <Button
               className="-mr-5 material-header-btn"
               style={{ marginLeft: "-20" }}
@@ -118,7 +118,7 @@ const Header = () => {
           href={twitterLink}
           target="_blank"
           rel="noreferrer"
-          className="ml-1 flex items-center bg-[#1A91DA] hover:bg-[#0F84B4] rounded-md relative"
+          className="ml-1 flex items-center bg-[#1A91DA] hover:bg-[#0F84B4] rounded-md relative cursor-pointer"
         >
           <Button className="track flex twitterBtn">
             <div className="flex items-center justify-center text-lg text-[#F0E9E2] duration-300">

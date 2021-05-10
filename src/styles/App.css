@@ -178,6 +178,9 @@
   padding: 4px 8px !important;
 }
 
-* {
-  cursor: url(https://picsum.photos/20/20), auto;
+.custom-cursor {
+  cursor: url("../assets/cursor.png"), auto;
+}
+.cursor-pointer {
+  cursor: pointer !important;
 }

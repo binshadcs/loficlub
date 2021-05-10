@@ -560,9 +560,6 @@ video {
 .left-0 {
 	left: 0px;
 }
-.bottom-0 {
-	bottom: 0px;
-}
 .z-10 {
 	z-index: 10;
 }
@@ -706,6 +703,9 @@ video {
 }
 .flex-1 {
 	flex: 1 1 0%;
+}
+.cursor-pointer {
+	cursor: pointer;
 }
 .flex-col {
 	flex-direction: column;

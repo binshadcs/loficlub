@@ -61,47 +61,49 @@ const Routes = () => {
   // routing for all routes
   return (
     <Router>
-      <Base>
-        <div className="absolute top-0 left-0 invisible -z-10">
-          {id && (
-            <YTwrapper
-              videoId={id}
-              paused={paused}
-              volume={volume / 100}
-              muted={muted}
-              onBuffering={onBuffering}
-              onPlaying={onPlaying}
-            />
-          )}
-        </div>
-        <Switch>
-          <Route path="/" exact>
-            <Home
-              id={id}
-              name={name}
-              volume={volume}
-              setVolume={setVolume}
-              setPaused={setPaused}
-              paused={paused}
-              fetchVideo={fetchVideo}
-              muted={muted}
-              buffering={buffering}
-            />
-          </Route>
-          <Route path="/tracks" exact>
-            <Tracks fetchVideo={fetchVideo} />
-          </Route>
-          <Route path="/todo" exact>
-            <TodoList fetchVideo={fetchVideo} />
-          </Route>
-          <Route path="/pomodoro" exact>
-            <Pomodoro />
-          </Route>
-          <Route path="/chat" exact>
-            <Chat />
-          </Route>
-        </Switch>
-      </Base>
+      <div className="custom-cursor">
+        <Base>
+          <div className="absolute top-0 left-0 invisible -z-10">
+            {id && (
+              <YTwrapper
+                videoId={id}
+                paused={paused}
+                volume={volume / 100}
+                muted={muted}
+                onBuffering={onBuffering}
+                onPlaying={onPlaying}
+              />
+            )}
+          </div>
+          <Switch>
+            <Route path="/" exact>
+              <Home
+                id={id}
+                name={name}
+                volume={volume}
+                setVolume={setVolume}
+                setPaused={setPaused}
+                paused={paused}
+                fetchVideo={fetchVideo}
+                muted={muted}
+                buffering={buffering}
+              />
+            </Route>
+            <Route path="/tracks" exact>
+              <Tracks fetchVideo={fetchVideo} />
+            </Route>
+            <Route path="/todo" exact>
+              <TodoList fetchVideo={fetchVideo} />
+            </Route>
+            <Route path="/pomodoro" exact>
+              <Pomodoro />
+            </Route>
+            <Route path="/chat" exact>
+              <Chat />
+            </Route>
+          </Switch>
+        </Base>
+      </div>
     </Router>
   );
 };
