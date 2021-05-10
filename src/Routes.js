@@ -62,7 +62,7 @@ const Routes = () => {
   return (
     <Router>
       <Base>
-        <div className="absolute top-0 left-0">
+        <div className="absolute top-0 left-0 invisible -z-10">
           {id && (
             <YTwrapper
               videoId={id}
