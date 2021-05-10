@@ -18,6 +18,7 @@ const Routes = () => {
   const [paused, setPaused] = useState(false);
   const [volume, setVolume] = useLocalStorage("volume", 50);
   const [video, setVideo] = useState([]);
+  const [muted, setMuted] = useState(true);
 
   // destructing video
   const { id, name } = video;
@@ -37,6 +38,13 @@ const Routes = () => {
     }
   };
 
+  const toggleMute = () => {
+    setMuted(false);
+  };
+
+  //toggle mute for autoplay
+  document.onkeypress = toggleMute;
+
   // all the events
   useEffect(() => {
     fetchVideo();
@@ -48,7 +56,12 @@ const Routes = () => {
       <Base>
         <div className="absolute top-0 left-0 invisible -z-10">
           {id && (
-            <YTwrapper videoId={id} paused={paused} volume={volume / 100} />
+            <YTwrapper
+              videoId={id}
+              paused={paused}
+              volume={volume / 100}
+              muted={muted}
+            />
           )}
         </div>
         <Switch>
@@ -61,6 +74,7 @@ const Routes = () => {
               setPaused={setPaused}
               paused={paused}
               fetchVideo={fetchVideo}
+              muted={muted}
             />
           </Route>
           <Route path="/tracks" exact>
