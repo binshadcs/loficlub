@@ -35,6 +35,7 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
     }
   }, [db]);
 
+  // send message on enter
   const checkEnter = (e) => {
     if (e.keyCode === 13) {
       sendMessage();
