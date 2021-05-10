@@ -47,9 +47,9 @@ const Routes = () => {
     <Router>
       <Base>
         <div className="absolute top-0 left-0 invisible -z-10">
-          {id && (
+          {/* {id && (
             <YTwrapper videoId={id} paused={paused} volume={volume / 100} />
-          )}
+          )} */}
         </div>
         <Switch>
           <Route path="/" exact>

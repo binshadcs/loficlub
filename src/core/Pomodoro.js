@@ -142,12 +142,32 @@ const Pomodoro = () => {
             <h1 className="text-4xl leading-8">{breaktime} Mins</h1>
             <h1 className="text-md text-gray-300">Break Time</h1>
             <div className="flex items-center justify-center mt-1">
-              <div className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1">
+              <div
+                className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1"
+                onClick={() => {
+                  if (!isWorkTime) {
+                    setTimes({
+                      breaktime: breaktime + 1,
+                    });
+                    setKey((prevKey) => prevKey + 1);
+                  }
+                }}
+              >
                 <Button className="">
                   <BsPlus className=" text-2xl text-[#F0E9E2]" />
                 </Button>
               </div>
-              <div className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1">
+              <div
+                className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1"
+                onClick={() => {
+                  if (!isWorkTime) {
+                    setTimes({
+                      breaktime: breaktime - 1,
+                    });
+                    setKey((prevKey) => prevKey + 1);
+                  }
+                }}
+              >
                 <Button className="">
                   <BsDash className=" text-2xl text-[#F0E9E2]" />
                 </Button>

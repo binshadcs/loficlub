@@ -11,9 +11,6 @@ import { Channel } from "../components";
 // backend import
 import { db, auth } from "../backend";
 
-// material-ui
-import { Button } from "@material-ui/core";
-
 const Chat = () => {
   // storing user
   const [user, setUser] = useState(() => auth.currentUser);

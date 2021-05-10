@@ -23,6 +23,7 @@ import screenfull from "screenfull";
 import { FiTwitter } from "react-icons/fi";
 
 const Header = () => {
+  const [onLineUsers, setOnlineUsers] = useState("");
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   const twitterLink =
