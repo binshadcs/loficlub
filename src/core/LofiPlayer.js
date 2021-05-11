@@ -139,6 +139,7 @@ const LofiPlayer = ({
       checkKeyDowns(e);
     }
   };
+  document.addEventListener("click", toggleMute);
 
   const checkShortcuts = (e) => {
     const { keyCode } = e;
