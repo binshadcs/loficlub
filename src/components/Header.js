@@ -12,6 +12,7 @@ import {
   BsClock,
   BsMusicNoteList,
   BsFullscreenExit,
+  BsStar,
 } from "react-icons/bs";
 
 // components
@@ -122,6 +123,15 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
                 style={{ marginLeft: "-20" }}
               >
                 <BsCheckBox className=" text-2xl text-[#F0E9E2]" />
+              </Button>
+            </div>
+          </Tooltip>
+        </Link>
+        <Link to="/stared" className="flex items-center">
+          <Tooltip title="Stared Music" arrow>
+            <div className="w-10 flex items-center overflow-hidden cursor-pointer">
+              <Button className="-mr-5 material-header-btn">
+                <BsStar className="-mt-1 -ml-2 text-2xl text-[#F0E9E2]" />
               </Button>
             </div>
           </Tooltip>

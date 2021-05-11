@@ -16,6 +16,7 @@ import {
   Home,
   KeyboardShortcuts,
   Pomodoro,
+  StaredMusic,
   TodoList,
   Tracks,
 } from "./core";
@@ -35,6 +36,9 @@ const Routes = () => {
   const [buffering, setBuffering] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [bgGif, setBgGif] = useState("");
+
+  // playlist
+  const [staredMusic, setStaredMusic] = useLocalStorage("staredMusic", []);
 
   // destructing video
   const { id, name } = video;
@@ -81,7 +85,7 @@ const Routes = () => {
           bgGif={bgGif}
         >
           <div className="absolute top-0 left-0 invisible -z-10">
-            {id && (
+            {/* {id && (
               <YTwrapper
                 videoId={id}
                 paused={paused}
@@ -90,7 +94,7 @@ const Routes = () => {
                 onBuffering={onBuffering}
                 onPlaying={onPlaying}
               />
-            )}
+            )} */}
           </div>
           <Switch>
             <Route path="/" exact>
@@ -111,7 +115,11 @@ const Routes = () => {
               />
             </Route>
             <Route path="/tracks" exact>
-              <Tracks fetchVideo={fetchVideo} />
+              <Tracks
+                fetchVideo={fetchVideo}
+                staredMusic={staredMusic}
+                setStaredMusic={setStaredMusic}
+              />
             </Route>
             <Route path="/todo" exact>
               <TodoList fetchVideo={fetchVideo} />
@@ -124,6 +132,13 @@ const Routes = () => {
             </Route>
             <Route path="/keyboard-shortcuts" exact>
               <KeyboardShortcuts />
+            </Route>
+            <Route path="/stared" exact>
+              <StaredMusic
+                fetchVideo={fetchVideo}
+                staredMusic={staredMusic}
+                setStaredMusic={setStaredMusic}
+              />
             </Route>
           </Switch>
         </Base>

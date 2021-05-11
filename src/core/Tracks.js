@@ -4,7 +4,7 @@ import axios from "axios";
 // components
 import { Track } from "../components";
 
-const Tracks = ({ fetchVideo }) => {
+const Tracks = ({ fetchVideo, staredMusic, setStaredMusic }) => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
@@ -32,6 +32,8 @@ const Tracks = ({ fetchVideo }) => {
           name={track.name}
           key={index}
           fetchVideo={fetchVideo}
+          staredMusic={staredMusic}
+          setStaredMusic={setStaredMusic}
         />
       ))}
     </div>
