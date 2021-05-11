@@ -159,9 +159,9 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
           </div>
         </Tooltip>
 
-        <Tooltip title="Share to Twitter" arrow>
+        <Tooltip title="Star App on Github" arrow>
           <a
-            href={twitterLink}
+            href="https://github.com/saviomartin/loficlub"
             target="_blank"
             rel="noreferrer"
             className="ml-1 flex items-center bg-[#24292E] hover:bg-[#222] rounded-md relative cursor-pointer border border-[#555]"
