@@ -3,16 +3,7 @@ import React, { useEffect, useState } from "react";
 // components
 import { Header } from "./components";
 
-// helper calls
-import { getRandomGif } from "./helper/RandomImageCalls";
-
-const Base = ({ children, isFullScreen, setIsFullScreen }) => {
-  const [bgGif, setBgGif] = useState("");
-
-  useEffect(() => {
-    setBgGif(getRandomGif());
-  }, []);
-
+const Base = ({ children, isFullScreen, setIsFullScreen, bgGif }) => {
   return (
     <div className="h-screen text-[#F0E9E2] bg-cover  w-full">
       <div

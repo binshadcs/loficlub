@@ -23,9 +23,8 @@ import {
 // utils
 import useLocalStorage from "./util/useLocalStorage";
 
-// AOS
-import Aos from "aos";
-import "aos/dist/aos.css";
+// helper calls
+import { getRandomGif } from "./helper/RandomImageCalls";
 
 const Routes = () => {
   // lofi video player properties
@@ -35,6 +34,7 @@ const Routes = () => {
   const [muted, setMuted] = useState(true);
   const [buffering, setBuffering] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [bgGif, setBgGif] = useState("");
 
   // destructing video
   const { id, name } = video;
@@ -54,9 +54,6 @@ const Routes = () => {
     }
   };
 
-  // AOS
-  Aos.init();
-
   const toggleMute = () => {
     setMuted(false);
   };
@@ -64,7 +61,7 @@ const Routes = () => {
   // all the events
   useEffect(() => {
     fetchVideo();
-    Aos.init({ duration: 1000 });
+    setBgGif(getRandomGif());
   }, []);
 
   const onBuffering = () => {
@@ -78,9 +75,13 @@ const Routes = () => {
   return (
     <Router>
       <div className="custom-cursor">
-        <Base isFullScreen={isFullScreen} setIsFullScreen={setIsFullScreen}>
+        <Base
+          isFullScreen={isFullScreen}
+          setIsFullScreen={setIsFullScreen}
+          bgGif={bgGif}
+        >
           <div className="absolute top-0 left-0 invisible -z-10">
-            {id && (
+            {/* {id && (
               <YTwrapper
                 videoId={id}
                 paused={paused}
@@ -89,7 +90,7 @@ const Routes = () => {
                 onBuffering={onBuffering}
                 onPlaying={onPlaying}
               />
-            )}
+            )} */}
           </div>
           <Switch>
             <Route path="/" exact>
@@ -106,6 +107,7 @@ const Routes = () => {
                 toggleMute={toggleMute}
                 isFullScreen={isFullScreen}
                 setIsFullScreen={setIsFullScreen}
+                setBgGif={setBgGif}
               />
             </Route>
             <Route path="/tracks" exact>

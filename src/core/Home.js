@@ -15,6 +15,7 @@ const Home = ({
   toggleMute,
   isFullScreen,
   setIsFullScreen,
+  setBgGif,
 }) => {
   return (
     <div className="flex items-end pb-[10%] justify-between items-between flex-col h-full">
@@ -33,6 +34,7 @@ const Home = ({
         toggleMute={toggleMute}
         isFullScreen={isFullScreen}
         setIsFullScreen={setIsFullScreen}
+        setBgGif={setBgGif}
       />
     </div>
   );

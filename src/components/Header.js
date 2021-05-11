@@ -21,11 +21,26 @@ import { Link } from "react-router-dom"; // react router
 
 // fullscreen api
 import screenfull from "screenfull";
-import { FiTwitter } from "react-icons/fi";
+import { FiGithub, FiTwitter } from "react-icons/fi";
 import { GoKeyboard } from "react-icons/go";
+import axios from "axios";
 
 const Header = ({ isFullScreen, setIsFullScreen }) => {
   const [listening, setListening] = useState(0);
+  const [starCount, setStarCount] = useState(1);
+
+  const fetchStarCount = () => {
+    axios
+      .get("https://api.github.com/repos/saviomartin/loficlub", {
+        headers: {},
+      })
+      .then((response) => {
+        setStarCount(response.data.stargazers_count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   // get how many is listening to
   useEffect(() => {
@@ -36,6 +51,11 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
         setListening(data.val());
       });
   });
+
+  // fetch on load once
+  useEffect(() => {
+    fetchStarCount();
+  }, []);
 
   const twitterLink =
     "https://twitter.com/intent/tweet?text=Check%20out%20loficlub.now.sh%20by%20@SavioMartin7%E2%9A%A1%EF%B8%8F%0D%0A%0AThe%20best%20place%20to%20enjoy%20Hip%20hop%20beats%20to%20Relax%20or%20Study!%20%F0%9F%8E%A7%20Give%20it%20a%20try!%20You%27ll%20love%20it!%20%F0%9F%94%A5%0D%0A%0A%23lofi%20%23chillbeats";
@@ -137,6 +157,22 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
               )}
             </Button>
           </div>
+        </Tooltip>
+
+        <Tooltip title="Share to Twitter" arrow>
+          <a
+            href={twitterLink}
+            target="_blank"
+            rel="noreferrer"
+            className="ml-1 flex items-center bg-[#24292E] hover:bg-[#222] rounded-md relative cursor-pointer border border-[#555]"
+          >
+            <Button className="track flex twitterBtn">
+              <div className="flex items-center justify-center text-lg text-[#F0E9E2] duration-300">
+                Stars {starCount}
+                <FiGithub className="ml-1" />
+              </div>
+            </Button>
+          </a>
         </Tooltip>
         <Tooltip title="Share to Twitter" arrow>
           <a

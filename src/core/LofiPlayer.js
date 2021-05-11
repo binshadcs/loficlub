@@ -23,6 +23,7 @@ import { Link, useHistory } from "react-router-dom";
 // axios
 import axios from "axios";
 import screenfull from "screenfull";
+import { getRandomGif } from "../helper/RandomImageCalls";
 
 const LofiPlayer = ({
   paused,
@@ -36,6 +37,7 @@ const LofiPlayer = ({
   toggleMute,
   setIsFullScreen,
   isFullScreen,
+  setBgGif,
 }) => {
   const [data, setData] = useState([]);
 
@@ -160,6 +162,8 @@ const LofiPlayer = ({
       history.push("/chat");
     } else if (keyCode === 112) {
       history.push("/pomodoro");
+    } else if (keyCode === 103) {
+      setBgGif(getRandomGif());
     } else if (keyCode === 104) {
       history.push("/");
     }

@@ -35,8 +35,8 @@ const KeyboardShortcuts = () => {
           <h3 className="font-thin text-xl ml-1">- View All Tracks</h3>
         </div>
         <div className="p-4 m-2 h-[80px] relative flex w-3/12 items-center bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D690] rounded-md mt-2 animate__animated animate__fadeInUp">
-          <kbd>H</kbd>
-          <h3 className="font-thin text-xl ml-1">- Go to Home</h3>
+          <kbd>G</kbd>
+          <h3 className="font-thin text-xl ml-1">- Change Background GIF</h3>
         </div>
         <div className="p-4 m-2 h-[80px] relative flex w-3/12 items-center bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D690] rounded-md mt-2 animate__animated animate__fadeInUp">
           <kbd>C</kbd>
