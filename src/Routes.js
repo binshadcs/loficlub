@@ -11,7 +11,14 @@ import "animate.css/animate.css";
 
 // components & core
 import { YTwrapper } from "./components";
-import { Chat, Home, Pomodoro, TodoList, Tracks } from "./core";
+import {
+  Chat,
+  Home,
+  KeyboardShortcuts,
+  Pomodoro,
+  TodoList,
+  Tracks,
+} from "./core";
 
 // utils
 import useLocalStorage from "./util/useLocalStorage";
@@ -73,7 +80,7 @@ const Routes = () => {
       <div className="custom-cursor">
         <Base isFullScreen={isFullScreen} setIsFullScreen={setIsFullScreen}>
           <div className="absolute top-0 left-0 invisible -z-10">
-            {id && (
+            {/* {id && (
               <YTwrapper
                 videoId={id}
                 paused={paused}
@@ -82,7 +89,7 @@ const Routes = () => {
                 onBuffering={onBuffering}
                 onPlaying={onPlaying}
               />
-            )}
+            )} */}
           </div>
           <Switch>
             <Route path="/" exact>
@@ -112,6 +119,9 @@ const Routes = () => {
             </Route>
             <Route path="/chat" exact>
               <Chat />
+            </Route>
+            <Route path="/keyboard-shortcuts" exact>
+              <KeyboardShortcuts />
             </Route>
           </Switch>
         </Base>

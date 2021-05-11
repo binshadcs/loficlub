@@ -22,6 +22,7 @@ import { Link } from "react-router-dom"; // react router
 // fullscreen api
 import screenfull from "screenfull";
 import { FiTwitter } from "react-icons/fi";
+import { GoKeyboard } from "react-icons/go";
 
 const Header = ({ isFullScreen, setIsFullScreen }) => {
   const [listening, setListening] = useState(0);
@@ -101,6 +102,18 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
                 style={{ marginLeft: "-20" }}
               >
                 <BsCheckBox className=" text-2xl text-[#F0E9E2]" />
+              </Button>
+            </div>
+          </Tooltip>
+        </Link>
+        <Link to="/keyboard-shortcuts" className="flex items-center">
+          <Tooltip title="Keyboard Shortcuts" arrow>
+            <div className="w-11 flex items-center overflow-hidden cursor-pointer">
+              <Button
+                className="-mr-5 material-header-btn"
+                style={{ marginLeft: "-20" }}
+              >
+                <GoKeyboard className=" text-[2.1em] text-[#F0E9E2]" />
               </Button>
             </div>
           </Tooltip>
