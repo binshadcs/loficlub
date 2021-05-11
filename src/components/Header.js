@@ -50,7 +50,7 @@ const Header = () => {
               Lofi Club
             </h3>
             <h4 className="text-sm text-[#F0E9E2] poppins font-medium -mt-1 ml-1">
-              {listening < 0 ? 1 : listening} listening
+              {listening} listening
             </h4>
           </div>
         </Link>
