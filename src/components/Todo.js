@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, Tooltip } from "@material-ui/core";
 import React from "react";
 import { BsCheckBox, BsSquare, BsTrash } from "react-icons/bs";
 
@@ -15,20 +15,24 @@ const Todo = ({ todo, deleteTodo, markAsCompleted }) => {
       </div>
       <div className="flex">
         <Button className="track flex" onClick={() => markAsCompleted(todo.id)}>
-          <div className="flex items-center justify-center text-xl text-green-600 hover:text-green-400 duration-300">
-            Completed
-            {todo.completed ? (
-              <BsCheckBox className="ml-1" />
-            ) : (
-              <BsSquare className="ml-1 text-sm" />
-            )}
-          </div>
+          <Tooltip title={todo.completed ? "Completed" : "Not Completed"} arrow>
+            <div className="flex items-center justify-center text-xl text-green-600 hover:text-green-400 duration-300">
+              Completed
+              {todo.completed ? (
+                <BsCheckBox className="ml-1" />
+              ) : (
+                <BsSquare className="ml-1 text-sm" />
+              )}
+            </div>
+          </Tooltip>
         </Button>
         <Button className="track flex" onClick={() => deleteTodo(todo.id)}>
-          <div className="flex items-center justify-center text-xl text-red-500 hover:text-red-600 duration-300">
-            Delete
-            <BsTrash className="ml-1" />
-          </div>
+          <Tooltip title="Delete" arrow>
+            <div className="flex items-center justify-center text-xl text-red-500 hover:text-red-600 duration-300">
+              Delete
+              <BsTrash className="ml-1" />
+            </div>
+          </Tooltip>
         </Button>
       </div>
     </div>
