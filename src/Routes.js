@@ -75,7 +75,7 @@ const Routes = () => {
       <div className="custom-cursor">
         <Base>
           <div className="absolute top-0 left-0 invisible -z-10">
-            {/* {id && (
+            {id && (
               <YTwrapper
                 videoId={id}
                 paused={paused}
@@ -84,7 +84,7 @@ const Routes = () => {
                 onBuffering={onBuffering}
                 onPlaying={onPlaying}
               />
-            )} */}
+            )}
           </div>
           <Switch>
             <Route path="/" exact>
