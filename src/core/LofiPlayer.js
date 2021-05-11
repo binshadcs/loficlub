@@ -130,8 +130,6 @@ const LofiPlayer = ({
       checkShortcuts(e);
     }
   };
-
-  // keyboard keydown - arrow keys only work with keydown
   document.onkeydown = function (e) {
     if (muted) {
       toggleMute();
@@ -139,7 +137,6 @@ const LofiPlayer = ({
       checkKeyDowns(e);
     }
   };
-  document.addEventListener("click", toggleMute);
 
   const checkShortcuts = (e) => {
     const { keyCode } = e;
@@ -185,11 +182,13 @@ const LofiPlayer = ({
       }
     } else if (keyCode === 40) {
       const nextVolume = parseInt(volume / 10, 10) * 10;
-      if (nextVolume % 10 === 0) {
-        setVolume(nextVolume);
-      }
+      setVolume(nextVolume);
     }
   };
+
+  document.addEventListener("click", toggleMute);
+  document.addEventListener("keypress", toggleMute);
+  document.addEventListener("keydown", toggleMute);
 
   return (
     <div className="w-full pl-7">
