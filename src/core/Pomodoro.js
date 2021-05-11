@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // material design
-import { Button } from "@material-ui/core";
+import { Button, Tooltip } from "@material-ui/core";
 
 // timer
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
@@ -19,8 +19,8 @@ const Pomodoro = () => {
   const [isWorkTime, setIsWorkTime] = useState(true);
 
   const [times, setTimes] = useState({
-    worktime: 2,
-    breaktime: 1,
+    worktime: 25,
+    breaktime: 5,
   });
   const { worktime, breaktime } = times;
 
@@ -35,7 +35,7 @@ const Pomodoro = () => {
 
   return (
     <div className="relative flex items-center justify-center h-full w-full pb-[10%]">
-      <div className="w-[70%] h-full flex items-center justify-center flex-col">
+      <div className="w-[70%] h-full flex items-center justify-center flex-col animate__animated animate__fadeInLeft">
         <div className="m-6">
           <CountdownCircleTimer
             isPlaying={isPlaying}
@@ -75,26 +75,30 @@ const Pomodoro = () => {
               setKey((prevKey) => prevKey + 1);
             }}
           >
-            <Button className="track flex text-xl">
-              <span className="text-xl font-light flex items-center justify-center">
-                Restart <BsClockHistory className="ml-1" />
-              </span>
-            </Button>
+            <Tooltip title="Restart" arrow>
+              <Button className="track flex text-xl">
+                <span className="text-xl font-light flex items-center justify-center">
+                  Restart <BsClockHistory className="ml-1" />
+                </span>
+              </Button>
+            </Tooltip>
           </div>
           <div
             className="border border-[#4CD2D6] rounded-md m-1 hover:bg-[#4CD2D680] duration-500"
             onClick={() => setIsPlaying(!isPlaying)}
           >
-            <Button className="track flex text-xl">
-              <span className="text-xl font-light flex items-center justify-center">
-                {!isPlaying ? "Start" : "Stop"}
-                <IoPauseCircleOutline className="text-2xl ml-2" />
-              </span>
-            </Button>
+            <Tooltip title={!isPlaying ? "Start" : "Stop"} arrow>
+              <Button className="track flex text-xl">
+                <span className="text-xl font-light flex items-center justify-center">
+                  {!isPlaying ? "Start" : "Stop"}
+                  <IoPauseCircleOutline className="text-2xl ml-2" />
+                </span>
+              </Button>
+            </Tooltip>
           </div>
         </div>
       </div>
-      <div className="w-[30%] h-full bg-gray-50 mr-5 rounded-md bg-gradient-to-t from-[#000] to-[#333] border border-[#4CD2D6] flex items-center justify-center">
+      <div className="w-[30%] h-full bg-gray-50 mr-5 rounded-md bg-gradient-to-t from-[#000] to-[#333] border border-[#4CD2D6] flex items-center justify-center animate__animated animate__fadeInRight">
         <div className="flex items-center justify-center flex-col">
           <h1 className="text-4xl leading-8">{worktime} Mins</h1>
           <h1 className="text-md text-gray-300">Session Time</h1>

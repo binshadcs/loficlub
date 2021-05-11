@@ -6,12 +6,19 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // base
 import Base from "./Base";
 
+// animate.css
+import "animate.css/animate.css";
+
 // components & core
 import { YTwrapper } from "./components";
 import { Chat, Home, Pomodoro, TodoList, Tracks } from "./core";
 
 // utils
 import useLocalStorage from "./util/useLocalStorage";
+
+// AOS
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Routes = () => {
   // lofi video player properties
@@ -39,6 +46,9 @@ const Routes = () => {
     }
   };
 
+  // AOS
+  Aos.init();
+
   const toggleMute = () => {
     setMuted(false);
   };
@@ -49,6 +59,7 @@ const Routes = () => {
   // all the events
   useEffect(() => {
     fetchVideo();
+    Aos.init({ duration: 1000 });
   }, []);
 
   const onBuffering = () => {
@@ -64,7 +75,7 @@ const Routes = () => {
       <div className="custom-cursor">
         <Base>
           <div className="absolute top-0 left-0 invisible -z-10">
-            {id && (
+            {/* {id && (
               <YTwrapper
                 videoId={id}
                 paused={paused}
@@ -73,7 +84,7 @@ const Routes = () => {
                 onBuffering={onBuffering}
                 onPlaying={onPlaying}
               />
-            )}
+            )} */}
           </div>
           <Switch>
             <Route path="/" exact>

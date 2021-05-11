@@ -3,11 +3,13 @@ import firebase from "firebase";
 
 // components
 import { Message } from ".";
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, Tooltip } from "@material-ui/core";
 
 // Icons
 import { BiExit, BiSend } from "react-icons/bi";
 import { FaGoogle } from "react-icons/fa";
+
+// scroll to bottom automatic
 import ScrollToBottom from "react-scroll-to-bottom";
 
 const Channel = ({ user, db, signout, signInWithGoogle }) => {
@@ -65,7 +67,7 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
           ))}
         </ScrollToBottom>
       </div>
-      <div className="w-full relative mt-5 p-2  pl-0 flex items-center justify-between bg-gradient-to-r from-[#00C9FF]  to-[#92FE9D] border border-[#4CD2D6] rounded-md mb-4">
+      <div className="w-full relative mt-5 p-2  pl-0 flex items-center justify-between bg-gradient-to-r from-[#00C9FF]  to-[#92FE9D] border border-[#4CD2D6] rounded-md mb-4 animate__animated animate__fadeInUp">
         {!user && (
           <div className="absolute h-full w-full z-10 bg-[#55555599]  rounded-md flex items-center justify-center">
             <div className="bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] rounded-md h-[65%] overflow-hidden">
@@ -83,15 +85,17 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
         )}
         <div className="flex flex-col w-full">
           <div className="flex items-center justify-center w-full">
-            {user && (
-              <img
-                src={user.photoURL}
-                alt="Avatar"
-                className="rounded-md ml-2"
-                width={45}
-                height={45}
-              />
-            )}
+            <Tooltip title={user.displayName} arrow>
+              {user && (
+                <img
+                  src={user.photoURL}
+                  alt="Avatar"
+                  className="rounded-md ml-2"
+                  width={45}
+                  height={45}
+                />
+              )}
+            </Tooltip>
 
             <div className="ml-2 w-full rounded-md shadow-2xl ">
               <TextField
@@ -103,6 +107,7 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
                 onKeyDown={(e) => checkEnter(e)}
               />
             </div>
+
             <Button onClick={sendMessage}>
               <BiSend className="text-3xl text-[#111]" />
             </Button>

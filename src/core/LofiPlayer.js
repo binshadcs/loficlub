@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Slider } from "@material-ui/core"; // material-ui
+import { Button, Slider, Tooltip } from "@material-ui/core"; // material-ui
 
 // icons
 import {
@@ -119,72 +119,84 @@ const LofiPlayer = ({
         />
       ) : (
         <>
-          <div className="mb-1 flex">
+          <div className="mb-1 flex animate__animated animate__fadeInUp">
             <div
               className="relative rounded-lg flex items-center justify-center bg-gradient-to-t from-[#00C9FF] to-[#92FE9D] overflow-hidden h-10 w-10 shadow-2xl"
               onClick={() => setPaused(!paused)}
             >
-              <Button className="playBtn">
-                <div class={`control-btn ${!paused && "paused"}`}>
-                  <label for="playpause"></label>
-                </div>
-              </Button>
+              <Tooltip title={paused ? "paused" : "playing"} arrow>
+                <Button className="playBtn">
+                  <div class={`control-btn ${!paused && "paused"}`}>
+                    <label for="playpause"></label>
+                  </div>
+                </Button>
+              </Tooltip>
             </div>
-            <div
-              className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
-              onClick={updatetoRandomVideo}
-            >
-              <Button className="playBtn h-full">
-                <BiTransfer className="text-2xl text-white" />
-              </Button>
-            </div>
-            <Link to="/tracks">
-              <div className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl">
+            <Tooltip title="random" arrow>
+              <div
+                className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
+                onClick={updatetoRandomVideo}
+              >
                 <Button className="playBtn h-full">
-                  <BsMusicNoteList className="text-2xl text-white" />
+                  <BiTransfer className="text-2xl text-white" />
                 </Button>
               </div>
+            </Tooltip>
+            <Link to="/tracks">
+              <Tooltip title="Tracks" arrow>
+                <div className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl">
+                  <Button className="playBtn h-full">
+                    <BsMusicNoteList className="text-2xl text-white" />
+                  </Button>
+                </div>
+              </Tooltip>
             </Link>
             <div
               className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
               onClick={moveToPreviousVideo}
             >
-              <Button className="playBtn h-full">
-                <HiChevronDoubleLeft className="text-2xl text-white" />
-              </Button>
+              <Tooltip title="Previous" arrow>
+                <Button className="playBtn h-full">
+                  <HiChevronDoubleLeft className="text-2xl text-white" />
+                </Button>
+              </Tooltip>
             </div>
             <div
               className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl"
               onClick={moveToNextVideo}
             >
-              <Button className="playBtn h-full">
-                <HiChevronDoubleRight className="text-2xl text-white" />
-              </Button>
+              <Tooltip title="Next" arrow>
+                <Button className="playBtn h-full">
+                  <HiChevronDoubleRight className="text-2xl text-white" />
+                </Button>
+              </Tooltip>
             </div>
 
-            <div className="w-40 ml-1 flex items-center justify-center">
-              <div className="mr-2">
-                {volume < 1 ? (
-                  <BiVolumeMute className="text-2xl text-white" />
-                ) : volume > 85 ? (
-                  <BiVolumeFull className="text-2xl text-white" />
-                ) : volume < 45 ? (
-                  <BiVolume className="text-2xl text-white" />
-                ) : (
-                  <BiVolumeLow className="text-2xl text-white" />
-                )}
+            <Tooltip title={`Volume ${volume}%`} arrow>
+              <div className="w-40 ml-1 flex items-center justify-center">
+                <div className="mr-2">
+                  {volume < 1 ? (
+                    <BiVolumeMute className="text-2xl text-white" />
+                  ) : volume > 85 ? (
+                    <BiVolumeFull className="text-2xl text-white" />
+                  ) : volume < 45 ? (
+                    <BiVolume className="text-2xl text-white" />
+                  ) : (
+                    <BiVolumeLow className="text-2xl text-white" />
+                  )}
+                </div>
+
+                <Slider
+                  min={0}
+                  max={100}
+                  valueLabelDisplay="auto"
+                  value={volume}
+                  onChange={(e, volume) => setVolume(volume)}
+                />
               </div>
-
-              <Slider
-                min={0}
-                max={100}
-                valueLabelDisplay="auto"
-                value={volume}
-                onChange={(e, volume) => setVolume(volume)}
-              />
-            </div>
+            </Tooltip>
           </div>
-          <div className="flex items-start justify-start w-auto mt-2">
+          <div className="flex items-start justify-start w-auto mt-2 animate__animated animate__fadeInUp">
             {!paused ? (
               <div className="spectrum flex items-end justify-end h-5 mr-2">
                 <div className="line1 bg-white line"></div>
@@ -213,7 +225,9 @@ const LofiPlayer = ({
                   : "Click to Change"}
               </h1>
               <FiChevronRight className="text-xl text-[#4CD2D6]" />
-              <h1 className="text-lg">{name}</h1>
+              <Tooltip title={`${name} - Click to change`} arrow>
+                <h1 className="text-lg">{name}</h1>
+              </Tooltip>
             </Link>
           </div>
         </>

@@ -1,10 +1,10 @@
 import { Button } from "@material-ui/core";
 import React from "react";
-import { BsCheckBox, BsTrash } from "react-icons/bs";
+import { BsCheckBox, BsSquare, BsTrash } from "react-icons/bs";
 
 const Todo = ({ todo, deleteTodo, markAsCompleted }) => {
   return (
-    <div className="w-[68%] relative p-3 flex items-center justify-between bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D690] rounded-md mt-2">
+    <div className="w-[68%] relative p-3 flex items-center justify-between bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D690] rounded-md mt-2 animate__animated animate__fadeInUp">
       <div className="relative flex items-center justify-start">
         <div
           className={`absolute duration-500 bg-green-400 h-1 ${
@@ -17,7 +17,11 @@ const Todo = ({ todo, deleteTodo, markAsCompleted }) => {
         <Button className="track flex" onClick={() => markAsCompleted(todo.id)}>
           <div className="flex items-center justify-center text-xl text-green-600 hover:text-green-400 duration-300">
             Completed
-            <BsCheckBox className="ml-1" />
+            {todo.completed ? (
+              <BsCheckBox className="ml-1" />
+            ) : (
+              <BsSquare className="ml-1 text-sm" />
+            )}
           </div>
         </Button>
         <Button className="track flex" onClick={() => deleteTodo(todo.id)}>

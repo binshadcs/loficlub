@@ -22,7 +22,7 @@ const Message = ({ createdAt, text, displayName, photoURL }) => {
   if (!text) return null;
 
   return (
-    <div className="relative p-3 flex items-center justify-start bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D690] rounded-md mt-2 w-full">
+    <div className="relative p-3 flex items-center justify-start bg-gradient-to-l from-[#000] to-[#11111198] border border-[#4CD2D690] rounded-md mt-2 w-full animate__animated animate__fadeIn">
       {photoURL && (
         <img
           src={photoURL}

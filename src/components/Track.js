@@ -22,7 +22,7 @@ const Track = ({ videoId, name, fetchVideo }) => {
 
   return (
     <div
-      className="relative rounded-lg items-center justify-center  overflow-hidden w-[28%] m-1 h-[15em] shadow-2xl overflow-hidden"
+      className="relative rounded-lg items-center justify-center w-[28%] m-1 h-[15em] shadow-2xl overflow-hidden animate__animated animate__fadeInUp"
       onClick={updateVideo}
     >
       <Button className="track">

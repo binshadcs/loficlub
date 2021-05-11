@@ -919,14 +919,14 @@ video {
 	--tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.duration {
+	transition-duration: 150ms;
+}
 .duration-300 {
 	transition-duration: 300ms;
 }
 .duration-500 {
 	transition-duration: 500ms;
-}
-.duration {
-	transition-duration: 150ms;
 }
 .hover\:bg-\[\#0F84B4\]:hover {
 	--tw-bg-opacity: 1;

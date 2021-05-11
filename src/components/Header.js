@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 // material design
-import { Button } from "@material-ui/core";
+import { Button, Tooltip } from "@material-ui/core";
 import firebase from "firebase";
 
 // icons
@@ -50,83 +50,97 @@ const Header = () => {
               Lofi Club
             </h3>
             <h4 className="text-sm text-[#F0E9E2] poppins font-medium -mt-1 ml-1">
-              {listening} listening
+              {listening < 0 ? 1 : listening} listening
             </h4>
           </div>
         </Link>
       </div>
       <div className="flex items-center mr-5">
         <Link to="/chat" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
-            <Button
-              className="-mr-5 material-header-btn"
-              style={{ marginLeft: "-20" }}
-            >
-              <BsChatSquareDots className=" text-2xl text-[#F0E9E2]" />
-            </Button>
-          </div>
+          <Tooltip title="Chat" arrow>
+            <Tooltip title="Chat" arrow>
+              <div className="w-11 flex items-center overflow-hidden cursor-pointer">
+                <Button
+                  className="-mr-5 material-header-btn"
+                  style={{ marginLeft: "-20" }}
+                >
+                  <BsChatSquareDots className=" text-2xl text-[#F0E9E2]" />
+                </Button>
+              </div>
+            </Tooltip>
+          </Tooltip>
         </Link>
         <Link to="/pomodoro" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
-            <Button
-              className="-mr-5 material-header-btn"
-              style={{ marginLeft: "-20" }}
-            >
-              <BsClock className=" text-2xl text-[#F0E9E2]" />
-            </Button>
-          </div>
+          <Tooltip title="Pomodoro Timer" arrow>
+            <div className="w-11 flex items-center overflow-hidden cursor-pointer">
+              <Button
+                className="-mr-5 material-header-btn"
+                style={{ marginLeft: "-20" }}
+              >
+                <BsClock className=" text-2xl text-[#F0E9E2]" />
+              </Button>
+            </div>
+          </Tooltip>
         </Link>
         <Link to="/tracks" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
-            <Button
-              className="-mr-5 material-header-btn"
-              style={{ marginLeft: "-20" }}
-            >
-              <BsMusicNoteList className=" text-2xl text-[#F0E9E2]" />
-            </Button>
-          </div>
+          <Tooltip title="Tracks" arrow>
+            <div className="w-11 flex items-center overflow-hidden cursor-pointer">
+              <Button
+                className="-mr-5 material-header-btn"
+                style={{ marginLeft: "-20" }}
+              >
+                <BsMusicNoteList className=" text-2xl text-[#F0E9E2]" />
+              </Button>
+            </div>
+          </Tooltip>
         </Link>
         <Link to="/todo" className="flex items-center">
-          <div className="w-11 flex items-center overflow-hidden cursor-pointer">
+          <Tooltip title="Todo List" arrow>
+            <div className="w-11 flex items-center overflow-hidden cursor-pointer">
+              <Button
+                className="-mr-5 material-header-btn"
+                style={{ marginLeft: "-20" }}
+              >
+                <BsCheckBox className=" text-2xl text-[#F0E9E2]" />
+              </Button>
+            </div>
+          </Tooltip>
+        </Link>
+        <Tooltip title="Full Screen" arrow>
+          <div
+            className="w-11 flex items-center overflow-hidden"
+            onClick={() => {
+              setIsFullScreen(!isFullScreen);
+              screenfull.toggle();
+            }}
+          >
             <Button
               className="-mr-5 material-header-btn"
               style={{ marginLeft: "-20" }}
             >
-              <BsCheckBox className=" text-2xl text-[#F0E9E2]" />
+              {isFullScreen ? (
+                <BsFullscreenExit className=" text-2xl text-[#F0E9E2]" />
+              ) : (
+                <BsArrowsFullscreen className=" text-2xl text-[#F0E9E2]" />
+              )}
             </Button>
           </div>
-        </Link>
-        <div
-          className="w-11 flex items-center overflow-hidden"
-          onClick={() => {
-            setIsFullScreen(!isFullScreen);
-            screenfull.toggle();
-          }}
-        >
-          <Button
-            className="-mr-5 material-header-btn"
-            style={{ marginLeft: "-20" }}
+        </Tooltip>
+        <Tooltip title="Share to Twitter" arrow>
+          <a
+            href={twitterLink}
+            target="_blank"
+            rel="noreferrer"
+            className="ml-1 flex items-center bg-[#1A91DA] hover:bg-[#0F84B4] rounded-md relative cursor-pointer"
           >
-            {isFullScreen ? (
-              <BsFullscreenExit className=" text-2xl text-[#F0E9E2]" />
-            ) : (
-              <BsArrowsFullscreen className=" text-2xl text-[#F0E9E2]" />
-            )}
-          </Button>
-        </div>
-        <a
-          href={twitterLink}
-          target="_blank"
-          rel="noreferrer"
-          className="ml-1 flex items-center bg-[#1A91DA] hover:bg-[#0F84B4] rounded-md relative cursor-pointer"
-        >
-          <Button className="track flex twitterBtn">
-            <div className="flex items-center justify-center text-lg text-[#F0E9E2] duration-300">
-              Share on Twitter
-              <FiTwitter className="ml-1" />
-            </div>
-          </Button>
-        </a>
+            <Button className="track flex twitterBtn">
+              <div className="flex items-center justify-center text-lg text-[#F0E9E2] duration-300">
+                Share on Twitter
+                <FiTwitter className="ml-1" />
+              </div>
+            </Button>
+          </a>
+        </Tooltip>
       </div>
     </div>
   );
