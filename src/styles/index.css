@@ -878,6 +878,9 @@ video {
 .pl-7 {
 	padding-left: 1.75rem;
 }
+.text-center {
+	text-align: center;
+}
 .text-xl {
 	font-size: 1.25rem;
 	line-height: 1.75rem;

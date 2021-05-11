@@ -62,7 +62,7 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
     "https://twitter.com/intent/tweet?text=Check%20out%20loficlub.now.sh%20by%20@SavioMartin7%E2%9A%A1%EF%B8%8F%0D%0A%0AThe%20best%20place%20to%20enjoy%20Hip%20hop%20beats%20to%20Relax%20or%20Study!%20%F0%9F%8E%A7%20Give%20it%20a%20try!%20You%27ll%20love%20it!%20%F0%9F%94%A5%0D%0A%0A%23lofi%20%23chillbeats";
 
   return (
-    <div className="flex w-full h-[12%] items-center justify-between">
+    <div className="flex w-full h-[12%] items-center justify-between animate__animated animate__fadeIn">
       <div className="flex flex-col justify-center items-center h-full ml-5 cursor-pointer">
         <Link to="/" className="flex mt-2 cursor-pointer">
           <Logo cursor-pointer />
