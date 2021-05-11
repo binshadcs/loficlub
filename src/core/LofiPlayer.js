@@ -18,10 +18,11 @@ import { Typewriter } from "react-typewriting-effect";
 import "react-typewriting-effect/dist/index.css";
 
 // react router
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 
 // axios
 import axios from "axios";
+import screenfull from "screenfull";
 
 const LofiPlayer = ({
   paused,
@@ -32,8 +33,12 @@ const LofiPlayer = ({
   fetchVideo,
   muted,
   buffering,
+  toggleMute,
 }) => {
   const [data, setData] = useState([]);
+
+  // history
+  let history = useHistory();
 
   const fetchData = async () => {
     await axios
@@ -107,6 +112,58 @@ const LofiPlayer = ({
       }
     }
     fetchVideo();
+  };
+
+  // keyboard shortcuts for productivity
+  document.onkeypress = function (e) {
+    if (muted) {
+      toggleMute();
+    } else {
+      checkShortcuts(e);
+    }
+  };
+
+  // keyboard keydown - arrow keys only work with keydown
+  document.onkeydown = function (e) {
+    if (muted) {
+      toggleMute();
+    } else {
+      checkKeyDowns(e);
+    }
+  };
+
+  const checkShortcuts = (e) => {
+    const { keyCode } = e;
+    if (keyCode === 32) {
+      setPaused(!paused);
+    } else if (keyCode === 114) {
+      updatetoRandomVideo();
+    } else if (keyCode === 116) {
+      history.push("/tracks");
+    } else if (keyCode === 102) {
+      screenfull.toggle();
+    }
+  };
+
+  const checkKeyDowns = (e) => {
+    const { keyCode } = e;
+    if (keyCode === 37) {
+      moveToPreviousVideo();
+    } else if (keyCode === 39) {
+      moveToNextVideo();
+    } else if (keyCode === 38) {
+      const nextVolume = parseInt(volume / 10, 10) * 10;
+      if (nextVolume < 100) {
+        if (nextVolume % 10 === 0) {
+          setVolume(nextVolume + 10);
+        }
+      }
+    } else if (keyCode === 40) {
+      const nextVolume = parseInt(volume / 10, 10) * 10;
+      if (nextVolume % 10 === 0) {
+        setVolume(nextVolume);
+      }
+    }
   };
 
   return (
