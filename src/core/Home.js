@@ -13,6 +13,8 @@ const Home = ({
   muted,
   buffering,
   toggleMute,
+  isFullScreen,
+  setIsFullScreen,
 }) => {
   return (
     <div className="flex items-end pb-[10%] justify-between items-between flex-col h-full">
@@ -29,6 +31,8 @@ const Home = ({
         muted={muted}
         buffering={buffering}
         toggleMute={toggleMute}
+        isFullScreen={isFullScreen}
+        setIsFullScreen={setIsFullScreen}
       />
     </div>
   );

@@ -6,7 +6,7 @@ import { Header } from "./components";
 // helper calls
 import { getRandomGif } from "./helper/RandomImageCalls";
 
-const Base = ({ children }) => {
+const Base = ({ children, isFullScreen, setIsFullScreen }) => {
   const [bgGif, setBgGif] = useState("");
 
   useEffect(() => {
@@ -32,7 +32,10 @@ const Base = ({ children }) => {
           }}
         >
           <div className="lines-animation"></div>
-          <Header />
+          <Header
+            isFullScreen={isFullScreen}
+            setIsFullScreen={setIsFullScreen}
+          />
           {children}
         </div>
       </div>

@@ -27,6 +27,7 @@ const Routes = () => {
   const [video, setVideo] = useState([]);
   const [muted, setMuted] = useState(true);
   const [buffering, setBuffering] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   // destructing video
   const { id, name } = video;
@@ -70,7 +71,7 @@ const Routes = () => {
   return (
     <Router>
       <div className="custom-cursor">
-        <Base>
+        <Base isFullScreen={isFullScreen} setIsFullScreen={setIsFullScreen}>
           <div className="absolute top-0 left-0 invisible -z-10">
             {/* {id && (
               <YTwrapper
@@ -96,6 +97,8 @@ const Routes = () => {
                 muted={muted}
                 buffering={buffering}
                 toggleMute={toggleMute}
+                isFullScreen={isFullScreen}
+                setIsFullScreen={setIsFullScreen}
               />
             </Route>
             <Route path="/tracks" exact>

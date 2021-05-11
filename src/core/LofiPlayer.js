@@ -34,6 +34,8 @@ const LofiPlayer = ({
   muted,
   buffering,
   toggleMute,
+  setIsFullScreen,
+  isFullScreen,
 }) => {
   const [data, setData] = useState([]);
 
@@ -141,6 +143,7 @@ const LofiPlayer = ({
     } else if (keyCode === 116) {
       history.push("/tracks");
     } else if (keyCode === 102) {
+      setIsFullScreen(!isFullScreen);
       screenfull.toggle();
     }
   };

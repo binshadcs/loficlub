@@ -23,8 +23,7 @@ import { Link } from "react-router-dom"; // react router
 import screenfull from "screenfull";
 import { FiTwitter } from "react-icons/fi";
 
-const Header = () => {
-  const [isFullScreen, setIsFullScreen] = useState(false);
+const Header = ({ isFullScreen, setIsFullScreen }) => {
   const [listening, setListening] = useState(0);
 
   // get how many is listening to
