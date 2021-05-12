@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // react router
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -10,7 +10,7 @@ import Base from "./Base";
 import "animate.css/animate.css";
 
 // components & core
-import { Loader, YTwrapper } from "./components";
+import { YTwrapper } from "./components";
 import {
   Chat,
   Home,
@@ -77,76 +77,74 @@ const Routes = () => {
 
   // routing for all routes
   return (
-    <Suspense fallback={<Loader />}>
-      <Router>
-        <div className="custom-cursor">
-          <Base
-            isFullScreen={isFullScreen}
-            setIsFullScreen={setIsFullScreen}
-            bgGif={bgGif}
-            setBgGif={setBgGif}
-          >
-            <div className="absolute top-0 left-0 invisible -z-10">
-              {id && (
-                <YTwrapper
-                  videoId={id}
-                  paused={paused}
-                  volume={volume / 100}
-                  muted={muted}
-                  onBuffering={onBuffering}
-                  onPlaying={onPlaying}
-                />
-              )}
-            </div>
-            <Switch>
-              <Route path="/" exact>
-                <Home
-                  id={id}
-                  name={name}
-                  volume={volume}
-                  setVolume={setVolume}
-                  setPaused={setPaused}
-                  paused={paused}
-                  fetchVideo={fetchVideo}
-                  muted={muted}
-                  buffering={buffering}
-                  toggleMute={toggleMute}
-                  isFullScreen={isFullScreen}
-                  setIsFullScreen={setIsFullScreen}
-                  setBgGif={setBgGif}
-                />
-              </Route>
-              <Route path="/tracks" exact>
-                <Tracks
-                  fetchVideo={fetchVideo}
-                  staredMusic={staredMusic}
-                  setStaredMusic={setStaredMusic}
-                />
-              </Route>
-              <Route path="/todo" exact>
-                <TodoList fetchVideo={fetchVideo} />
-              </Route>
-              <Route path="/pomodoro" exact>
-                <Pomodoro />
-              </Route>
-              <Route path="/chat" exact>
-                <Chat />
-              </Route>
-              <Route path="/keyboard-shortcuts" exact>
-                <KeyboardShortcuts />
-              </Route>
-              <Route path="/stared" exact>
-                <StaredMusic
-                  fetchVideo={fetchVideo}
-                  staredMusic={staredMusic}
-                  setStaredMusic={setStaredMusic}
-                />
-              </Route>
-            </Switch>
-          </Base>
-        </div>
-      </Router>
-    </Suspense>
+    <Router>
+      <div className="custom-cursor">
+        <Base
+          isFullScreen={isFullScreen}
+          setIsFullScreen={setIsFullScreen}
+          bgGif={bgGif}
+          setBgGif={setBgGif}
+        >
+          <div className="absolute top-0 left-0 invisible -z-10">
+            {id && (
+              <YTwrapper
+                videoId={id}
+                paused={paused}
+                volume={volume / 100}
+                muted={muted}
+                onBuffering={onBuffering}
+                onPlaying={onPlaying}
+              />
+            )}
+          </div>
+          <Switch>
+            <Route path="/" exact>
+              <Home
+                id={id}
+                name={name}
+                volume={volume}
+                setVolume={setVolume}
+                setPaused={setPaused}
+                paused={paused}
+                fetchVideo={fetchVideo}
+                muted={muted}
+                buffering={buffering}
+                toggleMute={toggleMute}
+                isFullScreen={isFullScreen}
+                setIsFullScreen={setIsFullScreen}
+                setBgGif={setBgGif}
+              />
+            </Route>
+            <Route path="/tracks" exact>
+              <Tracks
+                fetchVideo={fetchVideo}
+                staredMusic={staredMusic}
+                setStaredMusic={setStaredMusic}
+              />
+            </Route>
+            <Route path="/todo" exact>
+              <TodoList fetchVideo={fetchVideo} />
+            </Route>
+            <Route path="/pomodoro" exact>
+              <Pomodoro />
+            </Route>
+            <Route path="/chat" exact>
+              <Chat />
+            </Route>
+            <Route path="/keyboard-shortcuts" exact>
+              <KeyboardShortcuts />
+            </Route>
+            <Route path="/stared" exact>
+              <StaredMusic
+                fetchVideo={fetchVideo}
+                staredMusic={staredMusic}
+                setStaredMusic={setStaredMusic}
+              />
+            </Route>
+          </Switch>
+        </Base>
+      </div>
+    </Router>
   );
 };
 

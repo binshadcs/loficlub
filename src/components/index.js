@@ -5,4 +5,3 @@ export { default as Track } from "./Track";
 export { default as Todo } from "./Todo";
 export { default as Channel } from "./Channel";
 export { default as Message } from "./Message";
-export { default as Loader } from "./Loader";
