@@ -83,6 +83,7 @@ const Routes = () => {
           isFullScreen={isFullScreen}
           setIsFullScreen={setIsFullScreen}
           bgGif={bgGif}
+          setBgGif={setBgGif}
         >
           <div className="absolute top-0 left-0 invisible -z-10">
             {id && (

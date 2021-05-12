@@ -18,7 +18,10 @@ const Home = ({
   setBgGif,
 }) => {
   return (
-    <div className="flex items-end pb-[10%] justify-between items-between flex-col h-full">
+    <div
+      className="flex items-end pb-[10%] justify-between items-between flex-col h-full"
+      id="home"
+    >
       <div className="w-full flex-1">
         <div className="invisible"></div>
       </div>

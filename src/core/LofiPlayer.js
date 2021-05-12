@@ -18,12 +18,12 @@ import { Typewriter } from "react-typewriting-effect";
 import "react-typewriting-effect/dist/index.css";
 
 // react router
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // axios
 import axios from "axios";
 import screenfull from "screenfull";
-import { getRandomGif } from "../helper/RandomImageCalls";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const LofiPlayer = ({
   paused,
@@ -40,9 +40,6 @@ const LofiPlayer = ({
   setBgGif,
 }) => {
   const [data, setData] = useState([]);
-
-  // history
-  let history = useHistory();
 
   const fetchData = async () => {
     await axios
@@ -118,24 +115,14 @@ const LofiPlayer = ({
     fetchVideo();
   };
 
-  // twitterLink for shortcut
-  const twitterLink =
-    "https://twitter.com/intent/tweet?text=Check%20out%20loficlub.now.sh%20by%20@SavioMartin7%E2%9A%A1%EF%B8%8F%0D%0A%0AThe%20best%20place%20to%20enjoy%20Hip%20hop%20beats%20to%20Relax%20or%20Study!%20%F0%9F%8E%A7%20Give%20it%20a%20try!%20You%27ll%20love%20it!%20%F0%9F%94%A5%0D%0A%0A%23lofi%20%23chillbeats";
-
   // keyboard shortcuts for productivity
   document.onkeypress = function (e) {
-    if (muted) {
-      toggleMute();
-    } else {
-      checkShortcuts(e);
-    }
+    toggleMute();
+    checkShortcuts(e);
   };
   document.onkeydown = function (e) {
-    if (muted) {
-      toggleMute();
-    } else {
-      checkKeyDowns(e);
-    }
+    toggleMute();
+    checkKeyDowns(e);
   };
 
   const checkShortcuts = (e) => {
@@ -143,29 +130,13 @@ const LofiPlayer = ({
     console.log(keyCode);
     if (keyCode === 32) {
       setPaused(!paused);
-    } else if (keyCode === 114) {
-      updatetoRandomVideo();
-    } else if (keyCode === 97) {
-      history.push("/tracks");
-    } else if (keyCode === 102) {
-      setIsFullScreen(!isFullScreen);
-      screenfull.toggle();
-    } else if (keyCode === 116) {
-      window.open(twitterLink);
-    } else if (keyCode === 107) {
-      history.push("/keyboard-shortcuts");
-    } else if (keyCode === 108) {
-      history.push("/todo");
-    } else if (keyCode === 99) {
-      history.push("/chat");
-    } else if (keyCode === 112) {
-      history.push("/pomodoro");
-    } else if (keyCode === 103) {
-      setBgGif(getRandomGif());
-    } else if (keyCode === 104) {
-      history.push("/");
     }
   };
+
+  useHotkeys("f", () => {
+    setIsFullScreen(!isFullScreen);
+    screenfull.toggle();
+  });
 
   const checkKeyDowns = (e) => {
     const { keyCode } = e;
@@ -185,10 +156,6 @@ const LofiPlayer = ({
       setVolume(nextVolume);
     }
   };
-
-  document.addEventListener("click", toggleMute);
-  document.addEventListener("keypress", toggleMute);
-  document.addEventListener("keydown", toggleMute);
 
   return (
     <div className="w-full pl-7">

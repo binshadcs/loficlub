@@ -2,8 +2,27 @@ import React from "react";
 
 // components
 import { Header } from "./components";
+import { useHotkeys } from "react-hotkeys-hook";
+import { useHistory } from "react-router";
+import { getRandomGif } from "./helper/RandomImageCalls";
 
-const Base = ({ children, isFullScreen, setIsFullScreen, bgGif }) => {
+const Base = ({ children, isFullScreen, setIsFullScreen, bgGif, setBgGif }) => {
+  let history = useHistory();
+
+  const twitterLink =
+    "https://twitter.com/intent/tweet?text=Check%20out%20loficlub.now.sh%20by%20@SavioMartin7%E2%9A%A1%EF%B8%8F%0D%0A%0AThe%20best%20place%20to%20enjoy%20Hip%20hop%20beats%20to%20Relax%20or%20Study!%20%F0%9F%8E%A7%20Give%20it%20a%20try!%20You%27ll%20love%20it!%20%F0%9F%94%A5%0D%0A%0A%23lofi%20%23chillbeats";
+
+  useHotkeys("alt+k", () => history.push("/keyboard-shortcuts"));
+  useHotkeys("alt+t", () => window.open(twitterLink));
+  useHotkeys("alt+p", () => history.push("/pomodoro"));
+  useHotkeys("alt+l", () => history.push("/todo"));
+  useHotkeys("alt+c", () => history.push("/chat"));
+  useHotkeys("alt+k", () => history.push("/keyboard-shortcuts"));
+  useHotkeys("alt+h", () => history.push("/"));
+  useHotkeys("alt+a", () => history.push("/tracks"));
+  useHotkeys("alt+s", () => history.push("/stared"));
+  useHotkeys("alt+g", () => setBgGif(getRandomGif()));
+
   return (
     <div className="h-screen text-[#F0E9E2] bg-cover  w-full">
       <div
