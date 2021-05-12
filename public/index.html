@@ -34,62 +34,75 @@
         width: 100vw;
         height: 100vh;
         z-index: 999999;
-        background: #0c0c0c url(img/load.gif) no-repeat center;
         position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
       }
-      .loader-wrapper::-webkit-scrollbar {
-        display: none;
+      .spinner {
+        margin: 100px auto;
+        width: 40px;
+        height: 40px;
+        position: relative;
       }
-      @keyframes ldio-z6kqg2nwmsq {
-        0% {
-          transform: rotate(0deg);
+
+      .cube1,
+      .cube2 {
+        background-color: #4cd2d6;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+        animation: sk-cubemove 1.8s infinite ease-in-out;
+      }
+
+      .cube2 {
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+      }
+
+      @-webkit-keyframes sk-cubemove {
+        25% {
+          -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
         }
         50% {
-          transform: rotate(180deg);
+          -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+        }
+        75% {
+          -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg)
+            scale(0.5);
         }
         100% {
-          transform: rotate(360deg);
+          -webkit-transform: rotate(-360deg);
         }
       }
-      .ldio-z6kqg2nwmsq div {
-        position: absolute;
-        animation: ldio-z6kqg2nwmsq 1s linear infinite;
-        width: 160px;
-        height: 160px;
-        top: 20px;
-        left: 20px;
-        border-radius: 50%;
-        box-shadow: 0 4px 0 0 #0841ab;
-        transform-origin: 80px 82px;
-      }
-      .loadingio-spinner-eclipse-o78o8tpvu1p {
-        width: 200px;
-        height: 200px;
-        display: inline-block;
-        overflow: hidden;
-        background: #000;
-      }
-      .ldio-z6kqg2nwmsq {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transform: translateZ(0) scale(1);
-        backface-visibility: hidden;
-        transform-origin: 0 0;
-      }
-      .ldio-z6kqg2nwmsq div {
-        box-sizing: content-box;
-      }
-      .loader-wrapper {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #000;
-        z-index: 99999;
-        cursor: progress;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+      @keyframes sk-cubemove {
+        25% {
+          transform: translateX(42px) rotate(-90deg) scale(0.5);
+          -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+        }
+        50% {
+          transform: translateX(42px) translateY(42px) rotate(-179deg);
+          -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+        }
+        50.1% {
+          transform: translateX(42px) translateY(42px) rotate(-180deg);
+          -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+        }
+        75% {
+          transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+          -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg)
+            scale(0.5);
+        }
+        100% {
+          transform: rotate(-360deg);
+          -webkit-transform: rotate(-360deg);
+        }
       }
     </style>
   </head>
@@ -97,10 +110,9 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <div class="loader-wrapper">
-      <div class="loadingio-spinner-eclipse-o78o8tpvu1p">
-        <div class="ldio-z6kqg2nwmsq">
-          <div></div>
-        </div>
+      <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
       </div>
     </div>
     <script>
