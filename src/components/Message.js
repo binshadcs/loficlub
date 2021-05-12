@@ -35,7 +35,7 @@ const Message = ({ createdAt, text, displayName, photoURL }) => {
       <div className="flex flex-col">
         <div className="flex items-center">
           {displayName && (
-            <p className="mr-2 text-gray-300 text-md font-light">
+            <p className="mr-2 text-gray-300 text-sm lg:text-md font-light">
               {displayName}
             </p>
           )}
@@ -45,7 +45,7 @@ const Message = ({ createdAt, text, displayName, photoURL }) => {
             </span>
           )}
         </div>
-        <p className="text-lg">{text}</p>
+        <p className="text-md lg:text-lg">{text}</p>
       </div>
     </div>
   );

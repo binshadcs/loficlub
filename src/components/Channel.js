@@ -62,7 +62,7 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
   };
 
   return (
-    <div className="w-6/12 h-full">
+    <div className="w-10/12 lg:w-6/12 h-[75%] lg:h-full mt-[12%] lg:mt-0">
       <div className="flex flex-col h-[80%]">
         <ScrollToBottom className="h-full w-full">
           {messages.map((message) => (
