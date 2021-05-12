@@ -46,7 +46,7 @@ const TodoList = () => {
 
   return (
     <div className="flex items-center justify-center h-full w-full flex-col">
-      <div className="w-[68%] -ml-3 mt-5 p-2 flex items-center justify-between bg-gradient-to-r from-[#00C9FF]  to-[#92FE9D] border border-[#4CD2D6] rounded-md mb-4 animate__animated animate__fadeInDown">
+      <div className="w-[87.5%] lg:w-[68%] -ml-3 mt-5 p-2 flex items-center justify-between bg-gradient-to-r from-[#00C9FF]  to-[#92FE9D] border border-[#4CD2D6] rounded-md mb-4 animate__animated animate__fadeInDown">
         <div className="w-full h-full rounded-md shadow-2xl">
           <TextField
             label="Todo"
