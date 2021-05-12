@@ -5,7 +5,7 @@ import { Track } from "../components";
 
 const StaredMusic = ({ fetchVideo, staredMusic, setStaredMusic }) => {
   return (
-    <div className="flex h-full items-center justify-start flex-wrap flex-col overflow-scroll pb-[10%]">
+    <div className="flex h-full items-center justify-start flex-wrap flex-col overflow-scroll pb-[10%]relative">
       <h1 className="text-5xl text-center mt-3 animate__animated animate__fadeInDown">
         Your Playlist
       </h1>
@@ -20,6 +20,11 @@ const StaredMusic = ({ fetchVideo, staredMusic, setStaredMusic }) => {
             setStaredMusic={setStaredMusic}
           />
         ))}
+        {staredMusic.length < 1 && (
+          <div className="relative">
+            <p className="text-thin mt-3">You haven't saved any music.</p>
+          </div>
+        )}
       </div>
     </div>
   );
