@@ -20,8 +20,7 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
     if (db) {
       const unsubscribe = db
         .collection("messages")
-        .orderBy("createdAt")
-        .limit(100)
+        .orderBy("createdAt", "asc")
         .onSnapshot((querySnapshot) => {
           const data = querySnapshot.docs.map((doc) => ({
             ...doc.data(),
@@ -47,13 +46,17 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
   // send message feature
   const sendMessage = () => {
     if (db) {
-      db.collection("messages").add({
-        text: text,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        uid: user.uid,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-      });
+      if (text.replace(/\s/g, "") == "") {
+        console.log("type something...");
+      } else {
+        db.collection("messages").add({
+          text: text,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        });
+      }
     }
     setText("");
   };
@@ -85,8 +88,8 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
         )}
         <div className="flex flex-col w-full">
           <div className="flex items-center justify-center w-full">
-            <Tooltip title={user.displayName} arrow>
-              {user && (
+            {user && (
+              <Tooltip title={user.displayName} arrow>
                 <img
                   src={user.photoURL}
                   alt="Avatar"
@@ -94,8 +97,8 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
                   width={45}
                   height={45}
                 />
-              )}
-            </Tooltip>
+              </Tooltip>
+            )}
 
             <div className="ml-2 w-full rounded-md shadow-2xl ">
               <TextField
