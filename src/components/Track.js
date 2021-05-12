@@ -52,7 +52,7 @@ const Track = ({ videoId, name, fetchVideo, staredMusic, setStaredMusic }) => {
   });
 
   return (
-    <div className="relative rounded-lg items-center justify-center w-[28%] m-1 h-[15em] shadow-2xl overflow-hidden animate__animated animate__fadeInUp">
+    <div className="relative rounded-lg items-center justify-center w-full lg:w-[28%] m-1 h-[15em] shadow-2xl overflow-hidden animate__animated animate__fadeInUp">
       <Button className="track">
         <div
           className="absolute top-0 rounded-sm right-[2px] z-10 bg-[#333] p-[6px] border border-[#666] text-[#ccc] hover:text-[#fff]"

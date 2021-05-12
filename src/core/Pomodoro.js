@@ -34,8 +34,8 @@ const Pomodoro = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center h-full w-full pb-[10%]">
-      <div className="w-[70%] h-full flex items-center justify-center flex-col animate__animated animate__fadeInLeft">
+    <div className="relative block lg:flex items-center justify-center h-full w-full pb-[10%] overflow-y-scroll">
+      <div className="w-full lg:w-[70%] h-[80%] lg:h-full flex items-center justify-center flex-col animate__animated animate__fadeInLeft">
         <div className="m-6">
           <CountdownCircleTimer
             isPlaying={isPlaying}
@@ -98,7 +98,7 @@ const Pomodoro = () => {
           </div>
         </div>
       </div>
-      <div className="w-[30%] h-full bg-gray-50 mr-5 rounded-md bg-gradient-to-t from-[#000] to-[#333] border border-[#4CD2D6] flex items-center justify-center animate__animated animate__fadeInRight">
+      <div className="w-full lg:w-[30%] h-[90%] lg:h-full bg-gray-50 mr-5 rounded-md bg-gradient-to-t from-[#000] to-[#333] border border-[#4CD2D6] flex items-center justify-center animate__animated animate__fadeInRight">
         <div className="flex items-center justify-center flex-col">
           <h1 className="text-4xl leading-8">{worktime} Mins</h1>
           <h1 className="text-md text-gray-300">Session Time</h1>
