@@ -63,7 +63,7 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
 
   return (
     <div className="lg:flex w-full h-[12%] items-center justify-between animate__animated animate__fadeIn z-20 flex-row sm:block">
-      <div className="flex flex-col justify-center items-center h-full ml-5 cursor-pointer">
+      <div className="flex flex-col justify-center lg:items-center sm:items-start h-full ml-5 cursor-pointer">
         <Link to="/" className="flex mt-2 cursor-pointer">
           <Logo cursor-pointer />
           <div className="flex flex-col items-start justify-center">

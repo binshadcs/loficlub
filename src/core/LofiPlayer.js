@@ -168,61 +168,63 @@ const LofiPlayer = ({
         />
       ) : (
         <>
-          <div className="mb-1 flex animate__animated animate__fadeInUp">
-            <div
-              className="relative rounded-lg flex items-center justify-center bg-gradient-to-t from-[#00C9FF] to-[#92FE9D] overflow-hidden h-10 w-10 shadow-2xl"
-              onClick={() => setPaused(!paused)}
-            >
-              <Tooltip title={paused ? "paused" : "playing"} arrow>
-                <Button className="playBtn">
-                  <div class={`control-btn ${!paused && "paused"}`}>
-                    <label for="playpause"></label>
-                  </div>
-                </Button>
-              </Tooltip>
-            </div>
-            <Tooltip title="random" arrow>
+          <div className="mb-1 lg:flex sm:block animate__animated animate__fadeInUp">
+            <div className="flex">
               <div
-                className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
-                onClick={updatetoRandomVideo}
+                className="relative rounded-lg flex items-center justify-center bg-gradient-to-t from-[#00C9FF] to-[#92FE9D] overflow-hidden h-10 w-10 shadow-2xl"
+                onClick={() => setPaused(!paused)}
               >
-                <Button className="playBtn h-full">
-                  <BiTransfer className="text-2xl text-white" />
-                </Button>
+                <Tooltip title={paused ? "paused" : "playing"} arrow>
+                  <Button className="playBtn">
+                    <div class={`control-btn ${!paused && "paused"}`}>
+                      <label for="playpause"></label>
+                    </div>
+                  </Button>
+                </Tooltip>
               </div>
-            </Tooltip>
-            <Link to="/tracks">
-              <Tooltip title="Tracks" arrow>
-                <div className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl">
+              <Tooltip title="random" arrow>
+                <div
+                  className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
+                  onClick={updatetoRandomVideo}
+                >
                   <Button className="playBtn h-full">
-                    <BsMusicNoteList className="text-2xl text-white" />
+                    <BiTransfer className="text-2xl text-white" />
                   </Button>
                 </div>
               </Tooltip>
-            </Link>
-            <div
-              className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
-              onClick={moveToPreviousVideo}
-            >
-              <Tooltip title="Previous" arrow>
-                <Button className="playBtn h-full">
-                  <HiChevronDoubleLeft className="text-2xl text-white" />
-                </Button>
-              </Tooltip>
-            </div>
-            <div
-              className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl"
-              onClick={moveToNextVideo}
-            >
-              <Tooltip title="Next" arrow>
-                <Button className="playBtn h-full">
-                  <HiChevronDoubleRight className="text-2xl text-white" />
-                </Button>
-              </Tooltip>
+              <Link to="/tracks">
+                <Tooltip title="Tracks" arrow>
+                  <div className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl">
+                    <Button className="playBtn h-full">
+                      <BsMusicNoteList className="text-2xl text-white" />
+                    </Button>
+                  </div>
+                </Tooltip>
+              </Link>
+              <div
+                className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl ml-1"
+                onClick={moveToPreviousVideo}
+              >
+                <Tooltip title="Previous" arrow>
+                  <Button className="playBtn h-full">
+                    <HiChevronDoubleLeft className="text-2xl text-white" />
+                  </Button>
+                </Tooltip>
+              </div>
+              <div
+                className="relative rounded-lg flex items-center justify-center text-white overflow-hidden h-10 w-8 shadow-2xl"
+                onClick={moveToNextVideo}
+              >
+                <Tooltip title="Next" arrow>
+                  <Button className="playBtn h-full">
+                    <HiChevronDoubleRight className="text-2xl text-white" />
+                  </Button>
+                </Tooltip>
+              </div>
             </div>
 
             <Tooltip title={`Volume ${volume}%`} arrow>
-              <div className="w-40 ml-1 flex items-center justify-center">
+              <div className="w-[80%] lg:w-40 ml-1 flex items-center justify-center mt-2 lg:mt-0">
                 <div className="mr-2">
                   {volume < 1 ? (
                     <BiVolumeMute className="text-2xl text-white" />
@@ -264,16 +266,18 @@ const LofiPlayer = ({
 
             <Link
               to="/tracks"
-              className="flex items-center justify-start w-auto"
+              className="block lg:flex items-center justify-start w-auto"
             >
-              <h1 className="text-lg text-[#4CD2D6]">
-                {buffering
-                  ? "Buffering up ..."
-                  : paused
-                  ? "Music paused"
-                  : "Click to Change"}
-              </h1>
-              <FiChevronRight className="text-xl text-[#4CD2D6]" />
+              <div className="flex items-center justify-start">
+                <h1 className="text-lg text-[#4CD2D6]">
+                  {buffering
+                    ? "Buffering up ..."
+                    : paused
+                    ? "Music paused"
+                    : "Click to Change"}
+                </h1>
+                <FiChevronRight className="text-xl text-[#4CD2D6]" />
+              </div>
               <Tooltip title={`${name} - Click to change`} arrow>
                 <h1 className="text-lg">{name}</h1>
               </Tooltip>

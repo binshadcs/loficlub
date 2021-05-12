@@ -19,10 +19,10 @@ const Home = ({
 }) => {
   return (
     <div
-      className="flex items-end pb-[10%] justify-between items-between flex-col h-full"
+      className="flex items-end lg:pb-[10%] sm:pb-10 justify-end lg:justify-between sm:justify-end items-between flex-col h-[85%] lg:h-full"
       id="home"
     >
-      <div className="w-full flex-1">
+      <div className="w-full hidden lg:flex sm:hidden">
         <div className="invisible"></div>
       </div>
       <LofiPlayer
