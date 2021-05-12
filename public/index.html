@@ -48,6 +48,7 @@
       content="Lofi Club is an amazing place made special to enjoy Hip hop beats to Relax or Study! 🎧🎵 "
     />
     <meta property="twitter:image" content="./assets/loficlub.png" />
+    <link rel="canonical" href="https://loficlub.now.sh" />
 
     <style>
       * {
@@ -143,6 +144,29 @@
       $(window).on("load", function () {
         $(".loader-wrapper").fadeOut("slow");
       });
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("worker.js")
+            .then(
+              function (registration) {
+                console.log(
+                  "Worker registration successful",
+                  registration.scope
+                );
+              },
+              function (err) {
+                console.log("Worker registration failed", err);
+              }
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("Service Worker is not supported by browser.");
+      }
     </script>
   </body>
 </html>
