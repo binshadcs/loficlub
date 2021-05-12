@@ -62,7 +62,7 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
     "https://twitter.com/intent/tweet?text=Check%20out%20loficlub.now.sh%20by%20@SavioMartin7%E2%9A%A1%EF%B8%8F%0D%0A%0AThe%20best%20place%20to%20enjoy%20Hip%20hop%20beats%20to%20Relax%20or%20Study!%20%F0%9F%8E%A7%20Give%20it%20a%20try!%20You%27ll%20love%20it!%20%F0%9F%94%A5%0D%0A%0A%23lofi%20%23chillbeats";
 
   return (
-    <div className="flex w-full h-[12%] items-center justify-between animate__animated animate__fadeIn z-20">
+    <div className="lg:flex w-full h-[12%] items-center justify-between animate__animated animate__fadeIn z-20 flex-row sm:block">
       <div className="flex flex-col justify-center items-center h-full ml-5 cursor-pointer">
         <Link to="/" className="flex mt-2 cursor-pointer">
           <Logo cursor-pointer />
@@ -76,7 +76,7 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
           </div>
         </Link>
       </div>
-      <div className="flex items-center mr-5">
+      <div className="flex items-center mr-5 justify-center lg:justify-end">
         <Link to="/chat" className="flex items-center">
           <Tooltip title="Chat" arrow>
             <Tooltip title="Chat" arrow>
@@ -168,13 +168,12 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
             </Button>
           </div>
         </Tooltip>
-
         <Tooltip title="Star App on Github" arrow>
           <a
             href="https://github.com/saviomartin/loficlub"
             target="_blank"
             rel="noreferrer"
-            className="ml-1 flex items-center bg-[#24292E] hover:bg-[#222] rounded-md relative cursor-pointer border border-[#555]"
+            className="ml-1 flex items-center bg-[#24292E] hover:bg-[#222] rounded-md relative cursor-pointer border border-[#555] hidden lg:flex"
           >
             <Button className="track flex twitterBtn">
               <div className="flex items-center justify-center text-lg text-[#F0E9E2] duration-300">
@@ -189,7 +188,7 @@ const Header = ({ isFullScreen, setIsFullScreen }) => {
             href={twitterLink}
             target="_blank"
             rel="noreferrer"
-            className="ml-1 flex items-center bg-[#1A91DA] hover:bg-[#0F84B4] rounded-md relative cursor-pointer"
+            className="ml-1 items-center bg-[#1A91DA] hover:bg-[#0F84B4] rounded-md relative cursor-pointer hidden lg:flex"
           >
             <Button className="track flex twitterBtn">
               <div className="flex items-center justify-center text-lg text-[#F0E9E2] duration-300">

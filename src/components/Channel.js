@@ -46,7 +46,7 @@ const Channel = ({ user, db, signout, signInWithGoogle }) => {
   // send message feature
   const sendMessage = () => {
     if (db) {
-      if (text.replace(/\s/g, "") == "") {
+      if (text.replace(/\s/g, "") === "") {
         console.log("type something...");
       } else {
         db.collection("messages").add({
