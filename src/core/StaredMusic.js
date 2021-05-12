@@ -5,7 +5,7 @@ import { Track } from "../components";
 
 const StaredMusic = ({ fetchVideo, staredMusic, setStaredMusic }) => {
   return (
-    <div className="flex h-full items-center justify-start flex-wrap flex-col overflow-scroll pb-[10%]relative">
+    <div className="block h-full items-center justify-start flex-wrap flex-col overflow-scroll pb-[30%] lg:pb-[10%] relative">
       <h1 className="text-5xl text-center mt-3 animate__animated animate__fadeInDown">
         Your Playlist
       </h1>

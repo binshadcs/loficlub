@@ -960,6 +960,9 @@ video {
 .pl-7 {
 	padding-left: 1.75rem;
 }
+.pb-\[30\%\] {
+	padding-bottom: 30%;
+}
 .text-center {
 	text-align: center;
 }

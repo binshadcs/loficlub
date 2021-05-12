@@ -25,7 +25,7 @@ const Tracks = ({ fetchVideo, staredMusic, setStaredMusic }) => {
   }, []);
 
   return (
-    <div className="flex h-full items-center justify-center flex-wrap overflow-scroll pb-[10%]">
+    <div className="flex h-full items-center justify-center flex-wrap overflow-scroll pb-[30%] lg:pb-[10%]">
       {data.map((track, index) => (
         <Track
           videoId={track.id}
