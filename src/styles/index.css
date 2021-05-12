@@ -1120,6 +1120,11 @@ video {
 	.sm\:pb-10 {
 		padding-bottom: 2.5rem;
 	}
+
+	.sm\:text-xl {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
 }
 @media (min-width: 1024px) {
 
@@ -1159,6 +1164,10 @@ video {
 		width: 28%;
 	}
 
+	.lg\:w-\[68\%\] {
+		width: 68%;
+	}
+
 	.lg\:items-center {
 		align-items: center;
 	}
@@ -1181,6 +1190,16 @@ video {
 
 	.lg\:text-lg {
 		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
+
+	.lg\:text-2xl {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+
+	.lg\:text-xl {
+		font-size: 1.25rem;
 		line-height: 1.75rem;
 	}
 }
