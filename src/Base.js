@@ -26,7 +26,7 @@ const Base = ({ children, isFullScreen, setIsFullScreen, bgGif, setBgGif }) => {
   return (
     <div className="h-screen text-[#F0E9E2] bg-cover  w-full">
       <div
-        className="relative  flex items-center justify-center h-screen w-screen
+        className="relative  flex flex-col items-center justify-center h-screen w-screen
         bg-center random-bg bg-cover"
         style={{
           background: `url("${bgGif}")`,
@@ -48,6 +48,17 @@ const Base = ({ children, isFullScreen, setIsFullScreen, bgGif, setBgGif }) => {
           />
           {children}
         </div>
+        <h4 className="text-left w-[90%] text-lg mt-1">
+          Built with 💖 by
+          <a
+            href="https://twitter.com/saviomartin7"
+            target="_blank"
+            rel="noreferrer"
+            className="ml-1 hover:underline hover:text-[#4CD2D6]"
+          >
+            Savio Martin
+          </a>
+        </h4>
       </div>
     </div>
   );
