@@ -25,7 +25,7 @@
 
 </p>
 
-<p align="center"><img src="public/assets/app-screenshot.png" alt="loficlub screenshot" /></p>
+<p align="center"><img src="public/assets/app-screenshot.png" alt="loficlub screenshot" height="300px" /></p>
 
 <p align="center">
     <a href="https://loficlub.now.sh/" target="blank">View Demo</a>
