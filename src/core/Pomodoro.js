@@ -107,6 +107,7 @@ const Pomodoro = () => {
               className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1"
               onClick={() => {
                 setTimes({
+                  ...times,
                   worktime: worktime + 1,
                 });
                 setKey((prevKey) => prevKey + 1);
@@ -120,6 +121,7 @@ const Pomodoro = () => {
               className="flex items-center overflow-hidden border border-[#4CD2D6] rounded-md ml-1 mr-1"
               onClick={() => {
                 setTimes({
+                  ...times,
                   worktime: worktime - 1,
                 });
                 setKey((prevKey) => prevKey + 1);
@@ -139,6 +141,7 @@ const Pomodoro = () => {
                 onClick={() => {
                   if (!isWorkTime) {
                     setTimes({
+                      ...times,
                       breaktime: breaktime + 1,
                     });
                     setKey((prevKey) => prevKey + 1);
@@ -154,6 +157,7 @@ const Pomodoro = () => {
                 onClick={() => {
                   if (!isWorkTime) {
                     setTimes({
+                      ...times,
                       breaktime: breaktime - 1,
                     });
                     setKey((prevKey) => prevKey + 1);
