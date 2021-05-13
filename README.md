@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://loficlub.now.sh/">
-    <img alt="Lofi Club" src="public/assets/loficlub-logo.gif" width="150" height="150" />
+    <img alt="Lofi Club" src="public/assets/loficlub.gif" width="150" height="150" />
   </a>
 </p>
 <h1 align="center">Lofi Club</h1>
