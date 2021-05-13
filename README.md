@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://loficlub.now.sh/">
-    <img alt="Lofi Club" src="public/assets/android-chrome-512x512.png" width="100" />
+    <img alt="Lofi Club" src="public/assets/loficlub-logo.gif" width="150" height="150" />
   </a>
 </p>
 <h1 align="center">Lofi Club</h1>
@@ -37,7 +37,7 @@
 
 ### Need amazing lofi music to relax or study?
 
-Lofi Club is made just for you. Lofi Club is super flexible and have more than 17 awesome tracks. The app runs 24/7 enabling you to relax all time. Lofi Club comes with more amazing features like live chat, pomodoro, stared playlist and much more. So, sit back and enjoy! 🙌
+Lofi Club is a place for listening to live 24/7 Lofi music. Comes with more than 17 awesome tracks that app runs 24/7 enabling you to relax all time. Dark minimalist UI, Resonsive Design, Live Chat, Distraction free music player, todo list, pomodoro timer, control by keyboard, playlist, fullscreen mode makes the app super productive for daily use! So, sit back and enjoy! 🙌
 
 ## 🚀 Demo
 
