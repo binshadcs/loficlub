@@ -39,6 +39,8 @@
 
 Lofi Club is a place for listening to live 24/7 Lofi music. Comes with more than 17 awesome tracks that app runs 24/7 enabling you to relax all time. Dark minimalist UI, Resonsive Design, Live Chat, Distraction free music player, todo list, pomodoro timer, control by keyboard, playlist, fullscreen mode makes the app super productive for daily use! So, sit back and enjoy! 🙌
 
+<a href="https://www.producthunt.com/posts/lofi-club?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-lofi-club" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=295845&theme=dark" alt="Lofi Club - Enjoy Hip hop beats to Relax or Study! 🎧🎵 | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ## 🚀 Demo
 
 <a href="https://loficlub.now.sh/" target="blank">
